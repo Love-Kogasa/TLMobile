@@ -1,0 +1,9 @@
+[{
+  "icon": "https://mirror.sgkoi.dev/direct/WMITF.png",
+  "name": "这个东西从哪里来",
+  "writer": "gardenapple",
+  "link": "https://mirror.sgkoi.dev/Mods/Details/WMITF",
+  "description": "When you look at a modded item, block or NPC, WMITF will show you the name of the mod which it came from.\n\nThis can be useful if you're playing with lots of mods at once, or if you're a YouTuber and you want your viewers to see which mods you're using.\n\n(Inspired by the Minecraft mod WAILA by ProfMobius)\n\nAlso, big thanks to Pop000100 for maintaining the mod.",
+  "file": "https://mirror.sgkoi.dev/direct/WMITF.tmod",
+  "engine": "tmodloader"
+}]
