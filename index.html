@@ -1,0 +1,101 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/picnic.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
+    <script src="js/moddata.js"></script>
+    <script>
+      window.onload = async () => {
+        var mdd = await loadMod()
+        modsearch.oninput = () => {
+          mods.innerHTML = ""
+          for( let mod of mdd.search( modsearch.value )){
+            mods.innerHTML += mod.html()
+          }
+        }
+        modsearch.oninput()
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="demo imponent">
+      <a href="#" class="brand">
+         <img src="imgs/logo.png" class="logo">
+        <span>TLMobile</span>
+      </a>
+      <input id="bmenug" type="checkbox" class="show">
+      <label for="bmenug" class="burger pseudo button">&#8801;</label>
+      <div class="menu" style="padding: 5px;">
+        <input placeholder="搜索模组" id="modsearch"/>
+        <div id="mods">
+          <!--<article class="card">
+            <header>
+              <div class="flex three">
+                <img src="https://mirror.sgkoi.dev/direct/WMITF.png">
+                <div style="white-space:nowrap;">
+                  WMITF<br>
+                  <font size=2>gardenapple</font>
+                </div>
+              </div>
+            </header>
+          </article>-->
+        </div>
+      </div>
+    </nav><br>
+    <div class="container">
+      <h2>TLMobile</h2>
+      <p>一切为了Terraria手机MOD玩家<br>本站为Terraria手机适配的Addon的收集站<br>站点内资源均为免费<br>站点由各位Terraria创作者共同维护<br><a href="https://github.com/Love-Kogasa/tlmobile">Github - 共建本站/提出贡献</a></p>
+      <br>
+      <h2>Mod 加载器</h2>
+      <p>免费的Terraria手机版Mod加载器<br>不包括TrPro破解版</p>
+      <article class="card no-border">
+        <header>
+          <a href="./tml.html">
+            <img src="imgs/icon-tmodloader.png" width="32px" style="margin-bottom: -10px;">
+            <h4>TModLoader 移植版</h4>
+          </a>
+        </header>
+      </article>
+      <article class="card no-border">
+        <header>
+          <a href="./tef.html">
+            <img src="imgs/icon-tefmodloader.webp" width="32px" style="margin-bottom: -10px;">
+            <h4>TEFModLoader</h4>
+          </a>
+        </header>
+      </article>
+      <br>
+      <h2>Mod教程</h2>
+      <p>详细的泰拉瑞亚模组安装教程</p>
+      <article class="card no-border">
+        <header>
+          <a href="./doc/tml.html">
+            <img src="imgs/icon-tmodloader.png" width="32px" style="margin-bottom: -10px;">
+            <h4>TModLoader</h4>
+          </a>
+        </header>
+      </article>
+      <article class="card no-border">
+        <header>
+          <a href="./doc/tef.html">
+            <img src="imgs/icon-tefmodloader.webp" width="32px" style="margin-bottom: -10px;">
+            <h4>TEFModLoader</h4>
+          </a>
+        </header>
+      </article><br>
+      <h2>其他/杂项</h2>
+      <p>一些杂项，总之是杂七腊八玩意啦w</p>
+      <article class="card no-border">
+        <header>
+          <a href="./contributer.html">
+            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="32px" style="margin-bottom: -10px;">
+            <h4>贡献者&模组提交者</h4>
+          </a>
+        </header>
+      </article>
+    </div>
+  </body>
+</html>

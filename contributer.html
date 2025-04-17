@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/picnic.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
+    <script src="js/moddata.js"></script>
+    <script src="js/contributer.js"></script>
+    <script>
+      window.onload = async () => {
+        var mdd = await loadMod()
+        var ctr = await loadConr()
+        for( let people of ctr.json.dev ){
+          dev.innerHTML += ctr.html( people )
+        }
+        for( let people of ctr.json.mod ){
+          mod.innerHTML += ctr.html( people )
+        }
+        modsearch.oninput = () => {
+          mods.innerHTML = ""
+          for( let mod of mdd.search( modsearch.value )){
+            mods.innerHTML += mod.html()
+          }
+        }
+        modsearch.oninput()
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="demo imponent">
+      <a href="./index.html" class="brand">
+         <img src="imgs/logo.png" class="logo">
+        <span>TLMobile</span>
+      </a>
+      <input id="bmenug" type="checkbox" class="show">
+      <label for="bmenug" class="burger pseudo button">&#8801;</label>
+      <div class="menu" style="padding: 5px;">
+        <input placeholder="搜索模组" id="modsearch"/>
+        <div id="mods">
+        </div>
+      </div>
+    </nav><br>
+    <div class="container">
+      <h2 id="n">贡献者</h2>
+      <p id="info">感谢所有为TLMobile做出贡献的朋友<br><s>让我可以摆烂</s></p>
+      <div id="dev"></div>
+      <h2 id="n">模组提交榜</h2>
+      <p id="info">感谢各位朋友们的支持</p>
+      <div id="mod"></div>
+    </div>
+  </body>
+</html>
