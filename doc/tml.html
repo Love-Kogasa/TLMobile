@@ -1,0 +1,56 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/picnic.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
+    <script src="../js/moddata.js"></script>
+    <script>
+      window.onload = async () => {
+        var mdd = await loadMod()
+        modsearch.oninput = () => {
+          mods.innerHTML = ""
+          for( let mod of mdd.search( modsearch.value )){
+            mods.innerHTML += mod.html()
+          }
+        }
+        modsearch.oninput()
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="demo imponent">
+      <a href="../index.html" class="brand">
+         <img src="../imgs/logo.png" class="logo">
+        <span>TLMobile</span>
+      </a>
+      <input id="bmenug" type="checkbox" class="show">
+      <label for="bmenug" class="burger pseudo button">&#8801;</label>
+      <div class="menu" style="padding: 5px;">
+        <input placeholder="搜索模组" id="modsearch"/>
+        <div id="mods">
+        </div>
+      </div>
+    </nav><br>
+    <div class="container">
+      <h2>TmodLoader 移植版Mod教程</h2>
+      <p>编写者: @Love-Kogasa</p><br>
+      <h2>Step 1</h2>
+      <p>下载并安装TmodLoader</p>
+      一般的，这种软件应用商店不会给你下载()，不过你可以去浏览器找一个下载站下载，或者去Bilibili上找下载链接<br>
+      <s>我把我下载的那个链接忘了，要不然肯定给你们下载</s><br>
+      另外你需要下载一个Mt管理器(mt2.cn)，这样方便操作，如果是小米手机的话，这个可以去应用商店下载<br>
+      一般Tmodloader的apk文件在300-400mb之间，进一步验证可以下载下来拆包检验<br>
+      另附，一般的安装包包名(不是apk文件名)应该是 <i>ModLoader.Explendesco</i><br><br>
+      <h2>Step 2</h2>
+      <p>下载并安装Mod</p>
+      下载你想玩的mod(本站或模组浏览器)，打开mt管理器在Download中搜索.tmod，.tmod后缀的文件便是tmodloader的mod文件<br>
+      启动一次tmodloader后，将你的Tmod文件复制到目录 <pre>/storage/emulated/0/Android/data/ModLoader.Explendesco/Mods/</pre> 即可，打开tmodloader，点模组管理，双击mod，点重新加载即可<br><br>
+      <h2>Step 3</h2>
+      <p>启动游戏</p>
+      点单人游戏，创建角色，创建世界(不显示进度也是正常的)，就可以了<br>如果觉得卡顿建议将渲染模式调成复古，如果还卡可以关闭跳帧
+    </div>
+  </body>
+</html>
