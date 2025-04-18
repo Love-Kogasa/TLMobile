@@ -4,7 +4,7 @@ TLMobile - 一切为了Terraria手机MOD玩家.
 本站为Terraria手机适配的Addon的收集站
 站点内资源均为免费
 站点由各位Terraria创作者/玩家共同维护
-QQ群: 候补
+QQ群: 991761801
 ```
 
 # 如何添加Mod
