@@ -6,4 +6,20 @@
   "description": "When you look at a modded item, block or NPC, WMITF will show you the name of the mod which it came from.\n\nThis can be useful if you're playing with lots of mods at once, or if you're a YouTuber and you want your viewers to see which mods you're using.\n\n(Inspired by the Minecraft mod WAILA by ProfMobius)\n\nAlso, big thanks to Pop000100 for maintaining the mod.",
   "file": "https://mirror.sgkoi.dev/direct/WMITF.tmod",
   "engine": "tmodloader"
+}, {
+  "icon": "https://mirror.sgkoi.dev/direct/WeaponOut.png",
+  "name": "拿起武器WeaponOut",
+  "writer": "Flashkirby99",
+  "link": "https://mirror.sgkoi.dev/Mods/Details/WeaponOut",
+  "description": "WeaponOut is a quality of life and minor content mod that introduces items that use interesting game mechanics balanced for vanilla Terraria,\n but are capable of holding up to modded playthroughs. It adds fist, whips,\n multi-function and team support items as well as ease-of-use functions such as autoswinging accessories,\n teleporting hooks and temporary spawn points.\n\nSummary:\n* Hide/Show weapons being held with inventory icon (top left).\n* Temporary spawn point tents! Silk + Wood.\n* Fists! Dash at enemies to deliver devastating combos.\n* Whips! Deals crits when hitting at the tip.\n* Sabers! Fast striking swords with special charge effects.\n* More dual-use Weapons! Right-click for secondary weapon abilities.\n* Early game shields, with situational uses.\n* Team-centric items for buffing, and restoring mana.\n* Trivial accessories! Scale low tier weapons to high tier.\n* Custom config file, if you want to toggle the above features.\n\nNote: Config located in Terraria/ModLoader/Mod Configs\n\nContent:\n* 44 Fist Weapons\n* 9 Whip Weapons\n* 9 Saber Weapons\n* Quite a few other weapons\n* 25 Accessories (roughly)\n* 1 Tile\n* 3 Bullets\n\n\nNow has a wiki page: https://terrariamods.gamepedia.com/WeaponOut\nFolks on the discord server - Suggestions, bug testing and all-round support. You guys rock!\nkiedev666 - The first playtester.\n\nMod recommendations:\nVirtuous = Adds a whole bunch of cool and unique weapons.\nUnuBattleRods = Adds a fishing class that deals damage via special fishing rods that are also weapons.",
+  "file": "https://mirror.sgkoi.dev/direct/WeaponOut.tmod",
+  "engine": "tmodloader"
+}, {
+  "name": "见血封喉(Antiaris)",
+  "writer": "Zadum4ivii, Sprywisp, Gouvod, Vikri, Nokilos, CookieSam",
+  "icon": "https://mirror.sgkoi.dev/direct/Antiaris.png",
+  "description": "Lanzou分享提取码: 6kbh\n<img width=500 src=\"https://forums.terraria.org/index.php?attachments/antiaris-6-gif.190577/\">\nIntroduction\n\nAntiaris is a new project from part of team which made Tremor Mod.\nWe decided to stop developing of Tremor Mod and make a completely new project.\nContent in Antiaris will be more interesting, balanced and unique, unlike in Tremor, since we decided to go with \"Quality > Quantity\".\nOur team will try to make the game bigger, make the player feel more interested in game.\nCheck the thread everyday for more information & spoilers!",
+  "link": "https://forums.terraria.org/index.php?threads/antiaris.59884/",
+  "file": "https://wwp.lanzoui.com/i0HZJ2tz1clg",
+  "engine": "tmodloader"
 }]
