@@ -10,7 +10,7 @@ QQ群: 991761801
 # 如何添加Mod
 *我建议各位使用issue提交mod而不是PullRequest，或者去QQ群和我说*
 ModJson格式参照*data/mod.json*，另外，我用TR模组浏览器链接是为了方便测试，事实上你应该使用网盘或直链提供文件，为了保障创作者权益，非原创mod请务必提供相关链接  
-模板json
+模板json(可以使用生成器生成: https://tlm.lapis-net.top/tools/json.html)
 ```json
 {
   "icon": "Mod图标，如果没有可以写./imgs/logo.png",
