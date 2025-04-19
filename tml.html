@@ -6,20 +6,6 @@
     <link rel="stylesheet" href="css/picnic.css">
     <link rel="stylesheet" href="css/index.css">
     <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script src="js/moddata.js"></script>
-    <script>
-      window.onload = async () => {
-        var mdd = await loadMod()
-        var url = new URL( window.location.href ).searchParams
-        modsearch.oninput = () => {
-          mods.innerHTML = ""
-          for( let mod of mdd.search( modsearch.value )){
-            if( mod.engine = "tmodloader" ) mods.innerHTML += mod.html()
-          }
-        }
-        modsearch.oninput()
-      }
-    </script>
   </head>
   <body>
     <nav class="demo imponent">
