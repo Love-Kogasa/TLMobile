@@ -1,0 +1,96 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/picnic.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
+    <script>
+      window.onload = function(){
+        var defaultObject = {
+          name : "",
+          description: "",
+          link: "",
+          writer: "",
+          file: "",
+          icon: "./imgs/logo.png",
+          engine: "tmodloader",
+        }, name = document.getElementById( "name" )
+        copy.onclick = async function(){
+          await navigator.clipboard.writeText( JSON.stringify( defaultObject, 0, 2 ) )
+          alert( "复制成功！" )
+        }
+        function update(){
+          show.textContent = JSON.stringify( defaultObject, 0, 2 )
+        }
+        function input( key ){
+          return function(){
+            defaultObject[ key ] = this.value
+            update()
+          }
+        }
+        name.oninput = input( "name" )
+        by.oninput = input( "writer" )
+        description.oninput = input( "description" )
+        link.oninput = input( "link" )
+        file.oninput = input( "file" )
+        engine.oninput = input( "engine" )
+        icimg.onerror = function(){
+          this.src = "../imgs/logo.png"
+        }
+        icon.oninput = function(){
+          if( !this.value.includes( "://" ) ) return;
+          defaultObject[ "icon" ] = this.value
+          icimg.src = this.value
+          update()
+        }
+        icf.onchange = function(){
+          if( this.files[0] ){
+            var reader = new FileReader()
+            reader.onload = (e) => {
+              defaultObject.icon = e.target.result
+              update()
+              icimg.src = e.target.result
+            }
+            reader.readAsDataURL( this.files[0])
+          }
+        }
+        update()
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="demo imponent">
+      <a href="../index.html" class="brand">
+         <img src="../imgs/logo.png" class="logo">
+        <span>TLMobile - JsonGenerater</span>
+      </a>
+    </nav><br>
+    <div class="container" style="max-height: 70vh; overflow: auto;">
+      <input type="file" accept="image/*" id="icf" style="display: none;">
+      <div class="flex">
+        <img src="../imgs/logo.png" id="icimg" onclick="icf.click()">
+        <input placeholder="Mod图标" id="icon">
+      </div>
+      <div class="flex two">
+        <input placeholder="Mod名称" id="name">
+        <input placeholder="Mod作者" id="by">
+      </div>
+      <div class="flex">
+        <input placeholder="Mod链接" id="link">
+        <input placeholder="Mod文件(非原链接建议包含许可证)" id="file">
+        <select id="engine">
+          <option value="tmodloader">TmodLoader</option>
+          <option value="tefmodloader">TEFModLoader</option>
+          <option value="terraria">Terraria</option>
+        </select>
+        <textarea placeholder="Mod介绍" id="description" style="width: 100%; height: 25ch;"></textarea>
+      </div>
+      <div class="flex">
+        <pre style="height: 20ch;" id="show"></pre>
+        <button class="success" id="copy">复制(.json)</button>
+      </div>
+    </div>
+  </body>
+</html>
