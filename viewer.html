@@ -14,7 +14,7 @@
         if( url.has( "id" )){
           var mod = mdd.json[url.get("id")]
           n.textContent = mod.name
-          description.textContent = mod.description
+          description.innerHTML = mod.description
           info.innerHTML = `适用于 ${mod.engine}<br>相关链接: <a href="${mod.link}">点我访问</a><br>Mod作者: ${mod.writer}`
           download.href = mod.file || "javascript:alert('暂无')"
         } else {
