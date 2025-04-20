@@ -1,4 +1,12 @@
 [{
+  "name": "灾厄MOD",
+  "description": "Lanzou提取码: 49xz\n本灾厄Mod版本为1.4.4.4，(应该)是灾厄Mod适配0.11.6.2的最高版本\n\n灾厄模组的内容包括：\n\n超过二十个新的Boss首领\n大量的新敌人、物品和矿物\n六种全新的地形环境和构造\n五种全新的挑战模式\n对原版游戏内物品和属性的平衡性调整\n一个全新的事件\n更多与其他模组联动的内容\n\n请注意：\n灾厄模组还有专属音乐包！",
+  "link": "https://forums.terraria.org/index.php?threads/calamity-mod.44065/",
+  "writer": "Fabsol and the Dev Team",
+  "file": "https://wwp.lanzoui.com/i0M8O2u23msd",
+  "icon": "https://mirror.sgkoi.dev/direct/CalamityMod.png",
+  "engine": "tmodloader"
+}, {
   "icon": "https://mirror.sgkoi.dev/direct/WMITF.png",
   "name": "这个东西从哪里来",
   "writer": "gardenapple",
