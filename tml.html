@@ -14,7 +14,7 @@
         modsearch.oninput = () => {
           mods.innerHTML = ""
           for( let mod of mdd.search( modsearch.value )){
-            if( mod.engine = "tmodloader" ) mods.innerHTML += mod.html()
+            if( mod.engine === "tmodloader" ) mods.innerHTML += mod.html()
           }
         }
         modsearch.oninput()
