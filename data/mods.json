@@ -46,4 +46,12 @@
   "file": "https://wwp.lanzoui.com/iBYLB2tyzvda",
   "icon": "https://mirror.sgkoi.dev/direct/Archeon.png",
   "engine": "tmodloader"
+}, {
+  "name": "遗忘の物(Forgotten Item)",
+  "description": "基于 https://github.com/2099123771/ForgottenItem 的改进版本，添加了已移除物品的获取方式以及某些武器的攻击方式",
+  "link": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/ForgottenItem.efmod",
+  "writer": "EternalFuture゙",
+  "file": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/ForgottenItem.efmod",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAABACAYAAABLAmSPAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADy0lEQVRoge2abWhNYRzAf3ebl9gMuzFEFLZpX2hI8hpNWYtJeRvaJx9Q5n1t+TApK5RFkkTNfFCTTShikVa2Qhg3Yi1maTN3Mxp78eE5/13nnHt3x+4b5/y+3Huf85znns7v/p//8/zPdfCfkpIW0/P756hwXUiocYT7AgLNEM1kWfk4APZkfgQsZDQm3BcQKMTkhIIVAKS9f6w7bhv9VzCaFEYM36W9OwDYRiMfXyaF6KRMAGLd+wHbaOQiJuOW5QLQWqU/PmJerdfzbKORhtGkkaPDzgKQvfIRAPNTUgCoft3lANto5CAmh04+qLV06I6LSaHLVe51HNtouIlJm6aZXAfAoKkdffbfsCYfgIWrVN6U2BRso+FCTI5cthqAn2/QXocAUHryAgCN59p057W2n+hzXNtoqBGTnTsfqIba47rjYlIqBh3aGrdqnNp3ZmxsBMyxKdhGg/7FmkFBTDo1k8aYFJNC8eynAGQs6tukYBmjIa8CmmLRQHz5KcBs8mVNpwPM9Vpp94dljIYsRo0mnYZZVWLSH/01aMQ2GrAv8GHyy52rXvsP19a2gcY2OuCB/ZjsrHnt8Na/beKUoFyPbfSvB/xLk5MKkgCoqwz0FSksY7TfOWlTUpJuRVLicnk149lHqrz49fktALpeVfsxmQVAxd5DgHlFNFAsY9RvjIrJ41cyAMhde113PDp5tmZyCRB5JgXbqJh0Njfr2uWzmIxNVTt9qe1EmknBNipsuxAHwJGlFwEodqqVi5gU/tTk5MVlAGRJDShIJgXbqJGuqFQAYlMX6Nr9mZS8WleZDHhMfihU5wXbpGAZo713c8eYxbqVT3T3cwDSZzgBeDKrCYCGUmX29Oh2wGxSZuNRq/R5NSFb1V/rC12Aec0bbKxjVPLlxrHqBk/Zp55aHd49GG/tZ7a2mQYB37OxPAXztXsJFZYxGjOqRf0L8kaL1pKjXko+VWp3XjNepGIt726WbgDJr5FqUrCO0eJec9751qiebVwiEYC4290ATF+uv0eb76uKwuWcOYDH5PY69VNp8rOfDTbWMdrfjnOjvgPQdu0mABUvxgOetfDVOyrvrj+v+kd3K5N5d7foxjHuZ0OFZYz6jJOs+PgegPz0mQA8fPYWgHsNbgCGJaqYlTwrSL4VJO82JSQAoY9NwXpGjVU+iUlBTJa53TojxkqEmDMSLpOCZYyaZl2p9n2uV/tGWfOWueu9msw/9gOAUzlqV1Pi6jsvhwvrGhWT74rkCXSPsYsOT7/IxjJGfc66gq/Z0liR8LdmDjeWMfoLYTiSYnSp0JcAAAAASUVORK5CYII=",
+  "engine": "tefmodloader"
 }]
