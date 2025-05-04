@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../css/picnic.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://gskmail.thmobile.xyz/libs/message.min.css">
+    <script src="https://gskmail.thmobile.xyz/libs/message.min.js"></script>
     <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
     <script>
       window.onload = function(){
@@ -57,11 +59,35 @@
           }
         }
         update()
+        upload.onclick = async function(){
+          if( ( /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/ ).test(uploader.value ) ){
+            var msg = Qmsg.loading( "正在发送请求至API" )
+            var {status} = await (await fetch( "https://api.lapis-net.top/trAddmod", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json"
+              },
+              body: JSON.stringify({
+                json: defaultObject,
+                mail: uploader.value,
+                site: "https://api.lapis-net.top"
+              })
+            })).json()
+            msg.close()
+            if( status == "success" ){
+              Qmsg.success( "上传成功，请留意邮箱" )
+            } else {
+              Qmsg.error( "上传失败，遇到了未知的错误" )
+            }
+          } else {
+            Qmsg.error( "邮箱格式错误！" )
+          }
+        }
       }
     </script>
   </head>
   <body>
-    <nav class="demo imponent">
+    <nav class="demo imponent" style="z-index: 2">
       <a href="../index.html" class="brand">
          <img src="../imgs/logo.png" class="logo">
         <span>TLMobile - JsonGenerater</span>
@@ -90,7 +116,11 @@
       <div class="flex">
         <pre style="height: 20ch;" id="show"></pre>
         <button class="success" id="copy">复制(.json)</button>
-      </div>
+      </div><br>
+      <div class="flex">
+        <input placeholder="您的邮箱" type="email" id="uploader">
+        <button class="success" id="upload">上传到仓库</button>
+      </div><br>
     </div>
   </body>
 </html>
