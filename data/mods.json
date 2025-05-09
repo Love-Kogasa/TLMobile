@@ -39,6 +39,30 @@
   "icon": "https://mirror.sgkoi.dev/direct/Polarities.png",
   "engine": "tmodloader"
 }, {
+  "name": "Ultranium - 阴冥",
+  "description": "(提取码: hxem, Mod版本1.2.2(当前最新版)，本版本构建于0.11.8.1但亲测0.11.6.2能够正常使用)\n- 添加370＋物品\n- 8个Boss\n- 1个NPC等等\n- 一个超大型特殊建筑\n等",
+  "link": "https://mirror.sgkoi.dev/Mods/Details/Ultranium",
+  "writer": "DylanDoe21 and the rest of the team",
+  "file": "https://wwp.lanzoui.com/iK5C82vqgwwf",
+  "icon": "https://mirror.sgkoi.dev/direct/Ultranium.png",
+  "engine": "tmodloader"
+}, {
+  "name": "Bismuth辉秘",
+  "description": "(本mod版本为当前最新版本1.0.4.2，提取码aagt)\nHello, my dear friend! You must be searching for new terraria mods with original content? Here you can read about new modification with a lot of new game mechanics.\n\nSo what is Bismuth Mod?\nBismuth Mod is a TML global modification based on old 1.0.2 version. We spent about two years for development of this global update and now our team is ready to present it to you.\n\nContent\n● 400+ new items\n● 49 new NPCs\n● 4 new bosses\n● 120+ new tiles\n● RPG-styled system (146 skills, 5 classes)\n● Two playable races - naga and vampire\n● 8 new incredible structures, two of them are massive cities\n● New biome - swamp\n● New event - orcish invasion\n● Dice mini-game\n● Поддержка русского языка\nAnd a lot of other original content",
+  "link": "https://forums.terraria.org/index.php?threads/bismuth-mod-release.85081/",
+  "writer": "Kazzinak, Bassalt, Rekstri, Nokilos, BRIPE, Efromomr, Mr.Pigeon",
+  "file": "https://wwp.lanzoui.com/iE4ZW2vqhhyd",
+  "icon": "https://mirror.sgkoi.dev/direct/Bismuth.png",
+  "engine": "tmodloader"
+}, {
+  "name": "SOTS 暗影奥秘",
+  "description": "(提取码: 9vyz, mod版本0.21.1\n本版本在旧版tmod中可用)\nA mod which probably has something to do with Secrets and Shadows.\nThis mod's main plan is to add structures and other unique generation to the world, which can act as dungeons or help spice up exploration.\n\n!! This mod is early in development !!\n!! A large world is recommended in order for the generated structures to spawn without overriding vanilla structures !!\n\nBosses -> Currently 6, all with original AI!\nItems -> Nearly 600, designed to unique!\nOres -> 3\n\nNew Subclass: Void\n-Unleash very powerful attacks, at a cost\n-High risk, high reward\n-Has melee, ranged, magic, and summon items\n\nMajor Stuctures: 2\n-Pyramid Dungeon Worldgen\n-Planetarium Temple Worldgen\n-A generous amount of smaller structures\n\nCredits:\n(Current Developers)\nCode, Direction, Art: Vortex#6230\nMusic, SFX, Direction, Art: Heart Plus Up!\nCode, Audio Engineering: apotofkoolaid\nArt: Mochi, MrPetkins\n\n(Contributors and Other Credits)\nArt: HugeKraken, Arcri, Pokerface\nTesters/Other: Mushnib~, Astrobit, DreadSoul, Crimsonkeep, Bman, TheoR\nCode: Graydee, ENNWAY, Qwerty3.14, OS, Nalyd T.\nMinor Art: Naka, DeJuiceTD, Nomis\n\n(Past Developers)\nEmotional Support, Direction, Art: Coolio\nMisc, Direction: FlameFreezer\nMusic: BananaLizard\nArt: Blasfah",
+  "link": "https://forums.terraria.org/index.php?threads/secrets-of-the-shadows-terraria-mod.94546/",
+  "writer": "Vortex Of Rainbows",
+  "file": "https://wwp.lanzoui.com/iO2P42vqhpre",
+  "icon": "https://mirror.sgkoi.dev/direct/SOTS.png",
+  "engine": "tmodloader"
+}, {
   "name": "独立翅膀栏",
   "description": "提取码: e0ko\n在泰拉瑞亚玩家的视频栏单独增加一个翅膀栏",
   "link": "https://github.com/abluescarab/tModLoader-WingSlot",
