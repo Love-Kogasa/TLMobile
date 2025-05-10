@@ -1,4 +1,4 @@
-# tModLoader 常见问题Q&A
+## tModLoader 常见问题Q&A
 * 下面涉及到的词语  
 游戏目录: `/sdcard/Android/data/ModLoader.Explendesco`.  
 泰拉瑞亚原版游戏目录: `/sdcard/Android/data/com.and.games505.TerrariaPaid/`.  
@@ -79,7 +79,7 @@ Mod按键设置里找按键往下滑，找到mod按键，用默认按键，然�
 ```
 灾厄就行，最经典也最有名的泰拉瑞亚mod
 ```
-# TEFModLoader 常见问题Q&A
+## TEFModLoader 常见问题Q&A
 * Q: 如何下载TEFML
 ```
 建议从Gitlab下载最新版TEFML(官方源)
@@ -94,7 +94,7 @@ https://gitlab.com/2079541547/tefmodloader/-/releases
 ```
 * Q: TEFML可以用电脑的材质包以及TLPRO的材质包  
 (我没有用过TefML，所以很多问题我也没法给出具体的回答，各位可以去Eternal大佬的群里问)
-# 我应该使用哪种ModLoader
+## 我应该使用哪种ModLoader
 ```
 我有钱/我会安装apks
   - TRPro
@@ -121,7 +121,7 @@ Github找tshock的仓库，在release里找linux arm64的版本
 插件可以到 https://docs.terraria.ink/zh/guide/get-start.html 寻找
 强烈推荐ModifyWeapons插件，可以自定义武器
 ```-->
-# TLMobile 相关问题
+## TLMobile 相关问题
 * Q: 访问不了怎么办
 ```
 将url的协议http改成https
@@ -149,7 +149,7 @@ Github找tshock的仓库，在release里找linux arm64的版本
 I'm really not have enough time for i18n work. You can try use a proxy to China for mod download.
 Alright, We warmly welcome all the experts to submit PullRequests for TLMobile
 ```
-# 逆天问题
+## 逆天问题
 ~~我一想到下面的问题就想笑~~
 * 对泰拉瑞亚犯错了怎么办  
 `？人之常情`
