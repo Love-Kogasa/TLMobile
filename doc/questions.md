@@ -1,7 +1,9 @@
 # tModLoader 常见问题Q&A
-* 下面涉及到的词语
-游戏目录: `/storage/emulated/0/Android/data/ModLoader.Explendesco`.  
+* 下面涉及到的词语  
+游戏目录: `/sdcard/Android/data/ModLoader.Explendesco`.  
+泰拉瑞亚原版游戏目录: `/sdcard/Android/data/com.and.games505.TerrariaPaid/`.  
 文件管理器建议用MT管理器
+* Q: tModLoader 在哪里下载
 ```
 浏览器搜索 tModLoader手机版 随便下一个都行，TLMobile上收录的mod以tModLoader网上最流传的版本(0.11.6.2旧版本)可以正常加载为最低标准
 改版不提供，可以问t_xYz
@@ -31,9 +33,10 @@ Zoom和UIScale两个key，将: 后面的数字改成1.5就差不多了
 ```
 * Q: 如何导入世界和存档
 ```
-世界(.wld)文件扔进Worlds文件夹
+世界(.wld)文件扔进游戏目录Worlds文件夹
 玩家(.plr,.tplr)文件扔进Players文件夹，tplr文件是tModLoader的玩家mod数据文件，不是备份文件
 .bak文件是备份文件，如果做错了事可以删除文件然后将备份文件的.bak后缀去掉
+本方法原版和ML通用
 ```
 * Q: 按键重叠调不动
 ```
