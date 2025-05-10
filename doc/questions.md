@@ -89,7 +89,7 @@ https://gitlab.com/2079541547/tefmodloader/-/releases
 这是由于谷歌为了保护创作者权益而针对安卓平台采取的一项特殊措施，直接提取出来的apk会缺斤少两
 你猜TLPRO破解版为什么是apks
 ```
-* Q: TEFML可以用电脑的材质包以及TLPRO的材质包
+* Q: TEFML可以用电脑的材质包以及TLPRO的材质包  
 (我没有用过TefML，所以很多问题我也没法给出具体的回答，各位可以去Eternal大佬的群里问)
 # 我应该使用哪种ModLoader
 ```
@@ -148,9 +148,9 @@ Alright, We warmly welcome all the experts to submit PullRequests for TLMobile
 ```
 # 逆天问题
 ~~我一想到下面的问题就想笑~~
-* 对泰拉瑞亚犯错了怎么办
+* 对泰拉瑞亚犯错了怎么办  
 `？人之常情`
-* upup，对TLMobile犯错了怎么办🥵
+* upup，对TLMobile犯错了怎么办🥵  
 `没救了，没收作案工具吧`
-* 泰拉瑞亚的第一个npc是什么
+* 泰拉瑞亚的第一个npc是什么  
 `你猜你为什么会问这个问题`
