@@ -1,0 +1,53 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/picnic.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
+    <script src="js/moddata.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      window.onload = async () => {
+        var mdd = await loadMod()
+        var path = new URL( window.location.href ).hash.split( "#/" )[1]
+        var req = await fetch( path )
+        if( path == void 0 && (!req.headers.get( "content-type" ).includes( "markdown" ) || req.headers.get( "content-type" ) == "application/octet-stream") /* 适配我的开发环境 */ ){
+          window.location.href = "./index.html"
+        } else {
+          try {
+            ctx.innerHTML = marked.parse( await req.text() )
+          } catch( error ){
+            alert(error)
+          }
+        }
+        modsearch.oninput = () => {
+          mods.innerHTML = ""
+          for( let mod of mdd.search( modsearch.value )){
+            mods.innerHTML += mod.html()
+          }
+        }
+        modsearch.oninput()
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="demo imponent">
+      <a href="./index.html" class="brand">
+         <img src="imgs/logo.png" class="logo">
+        <span>TLMobile</span>
+      </a>
+      <input id="bmenug" type="checkbox" class="show">
+      <label for="bmenug" class="burger pseudo button">&#8801;</label>
+      <div class="menu" style="padding: 5px;">
+        <input placeholder="搜索模组" id="modsearch"/>
+        <div id="mods">
+        </div>
+      </div>
+    </nav><br>
+    <div class="container" id="ctx">
+      
+    </div>
+  </body>
+</html>
