@@ -1,0 +1,70 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/picnic.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="../js/locRedata.js"></script>
+    <link rel="stylesheet" href="https://gskmail.thmobile.xyz/libs/message.min.css">
+    <script src="https://gskmail.thmobile.xyz/libs/message.min.js"></script>
+    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
+    <script>
+      window.onload = function(){
+        fup.onchange = () => {
+          if( fup.files[0] ){
+            Qmsg.success( "文件" + fup.files[0].name + "加载成功！" )
+          }
+        }
+        submit.onclick = () => {
+          if( fup.files[0] && targetVersion.value != "" && fup.files[0].name.includes( ".locpack" ) ){
+            var loadingMessage = Qmsg.loading( "转换中..." )
+            var reader = new FileReader()
+            reader.onload = async (e) => {
+             try {
+   var downloader = document.createElement( "a" )
+              downloader.download = fup.files[0].name
+              downloader.href  = await readPackageFromLocpack( e.target.result, ( package ) => {
+                Qmsg.success( "目标版本: " + targetVersion.value )
+                package.ModVersion = targetVersion.value
+                Qmsg.success( "汉化包名称: " + package.Name )
+                Qmsg.success( "汉化包作者: " + package.Author )
+                Qmsg.success( "汉化包所对应的mod: " + package.LocalizedModName )
+                Qmsg.success( "汉化包介绍信息见控制台" )
+                console.log( package.Description )
+                package.Description = "本汉化包版本使用 https://tlm.lapis-net.top/tools/locrv.html 强改，可能存在一定问题\n" + package.Description
+              })
+              downloader.click()
+              Qmsg.success( "修改成功！" )
+              loadingMessage.close()
+} catch( err ){
+  alert( err )
+}
+            }
+            reader.readAsArrayBuffer( fup.files[0] )
+          } else {
+            Qmsg.error( "未提交文件或者无目标版本或者文件格式错误" )
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="demo imponent" style="z-index: 2">
+      <a href="../index.html" class="brand">
+         <img src="../imgs/logo.png" class="logo">
+        <span>TLMobile - LocPackTool</span>
+      </a>
+    </nav><br>
+    <div class="container" style="overflow: auto;">
+       <h2>LocPack ReVersion</h2>
+       <p>通过强改汉化包的mod适配版本，从而达到旧版使用新版汉化，大部分人都可以玩到Mod汉化包的效果<br>其可行性是由于locpack与材质包加载方式相似，且格式一直以来并没有太大的变动，因此大部分理论来说强改可用</p>
+       <button onclick="fup.click()">上传文件(.locpack)</button>
+       <input type="file" id="fup" accept="application/*" style="display: none;">
+       <input type="text" placeholder="目标版本" id="targetVersion"><br><br>
+       <a href="../mdviewer.html#/doc/questions.md">如何使用Mod汉化包</a><br>
+       <button id="submit">转换并下载</button>
+    </div>
+  </body>
+</html>
