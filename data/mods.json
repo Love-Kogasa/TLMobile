@@ -63,6 +63,30 @@
   "icon": "https://mirror.sgkoi.dev/direct/SOTS.png",
   "engine": "tmodloader"
 }, {
+  "name": "Split (裂痕)",
+  "description": "(提取码: 8tfd)\nAbout\nSplit Mod adds new content to the game, such as items, enemies, bosses and more.\nThe main aim of the mod is to provide wholesome and fresh experience on top of the base game without breaking its charm and ambience.\nWe are working hard to make all of the content feel natural and interesting, so take your time and enjoy it!\nOur Discord: https://discord.gg/5eutHVCYMg",
+  "link": "https://forums.terraria.org/index.php?threads/released-wip-the-split-mod.65235",
+  "writer": "Doctor Hummer, Instrex, Jackspy",
+  "file": "https://wwp.lanzoui.com/iA9QQ2vyhp6b",
+  "icon": "https://mirror.sgkoi.dev/direct/Split.png",
+  "engine": "tmodloader"
+}, {
+  "name": "Shadows of Abaddon - 亚巴顿之影(汉化)",
+  "description": "(提取吗: 7hbd, Mod版本v1.1.0.9)\nShadows of Abaddon - by Dan Yami, Sumenora and the dev team\n(formerly known as SacredTools, the content mod known for NOT being a tool expansion and with no space)\n\nA mysterious reality-bender known only as the incarnation of nightmares, Abaddon, has found a small dimension known as \"Terraria\". It certainly is an interesting one, but it could use a little more... spicing up.\nThus, he has created gateways from his home world, Syrus, to the land of Terraria - trapping the syrusians in the process. Now, lost and confused in this strange new land, they desperately search for a way home.\nYou, the player, must defeat much stronger foes than you have ever faced before. You must find new allies - some who even used to be enemies - in order to find a way to defeat Abaddon and open a gateway back to Syrus. But for now, his shadows loom across the lands Terraria...\n\nAdds over 800 items, 11 bosses, 1 biome generated on world creation known as the \"Empress Den\", one biome generated upon the defeat of Abaddon known as the \"Flame Razed Forest\", a shrine structure and a couple new ores appearing throughout the game.\nIt would be appreciated to not judge the book by its cover, and learn about the authors who created this mod.\n\nCheck the Forum Thread for Updates:\nhttp://forums.terraria.org/index.php?threads/shadows-of-abaddon-mod.46605/\nCheck out the Discord for even more information:\nhttps://discord.gg/qEb5cMr\n\nCredits:\n- Jake Hawken, created the sounds used for the Asthraltite armor seteffect\n- CaptainSparklez and TryHardNinja, for creating the amazing Fallen Kingdom saga, which inspired the Piglin Army event.",
+  "link": "http://forums.terraria.org/index.php?threads/shadows-of-abaddon-mod.46605/",
+  "writer": "Dan Yami, Sumenora, and the rest of the dev team",
+  "file": "https://wwp.lanzoui.com/iNSP92wbun2b",
+  "icon": "https://mirror.sgkoi.dev/direct/SacredTools.png",
+  "engine": "tmodloader"
+}, {
+  "name": "见血封喉(Antiaris)",
+  "writer": "Zadum4ivii, Sprywisp, Gouvod, Vikri, Nokilos, CookieSam",
+  "icon": "https://mirror.sgkoi.dev/direct/Antiaris.png",
+  "description": "Lanzou分享提取码: 6kbh\n<img width=500 src=\"https://forums.terraria.org/index.php?attachments/antiaris-6-gif.190577/\">\nIntroduction\n\nAntiaris is a new project from part of team which made Tremor Mod.\nWe decided to stop developing of Tremor Mod and make a completely new project.\nContent in Antiaris will be more interesting, balanced and unique, unlike in Tremor, since we decided to go with \"Quality > Quantity\".\nOur team will try to make the game bigger, make the player feel more interested in game.\nCheck the thread everyday for more information & spoilers!",
+  "link": "https://forums.terraria.org/index.php?threads/antiaris.59884/",
+  "file": "https://wwp.lanzoui.com/i0HZJ2tz1clg",
+  "engine": "tmodloader"
+}, {
   "name": "独立翅膀栏",
   "description": "提取码: e0ko\n在泰拉瑞亚玩家的视频栏单独增加一个翅膀栏",
   "link": "https://github.com/abluescarab/tModLoader-WingSlot",
@@ -85,14 +109,6 @@
   "link": "https://mirror.sgkoi.dev/Mods/Details/WeaponOut",
   "description": "WeaponOut is a quality of life and minor content mod that introduces items that use interesting game mechanics balanced for vanilla Terraria,\n but are capable of holding up to modded playthroughs. It adds fist, whips,\n multi-function and team support items as well as ease-of-use functions such as autoswinging accessories,\n teleporting hooks and temporary spawn points.\n\nSummary:\n* Hide/Show weapons being held with inventory icon (top left).\n* Temporary spawn point tents! Silk + Wood.\n* Fists! Dash at enemies to deliver devastating combos.\n* Whips! Deals crits when hitting at the tip.\n* Sabers! Fast striking swords with special charge effects.\n* More dual-use Weapons! Right-click for secondary weapon abilities.\n* Early game shields, with situational uses.\n* Team-centric items for buffing, and restoring mana.\n* Trivial accessories! Scale low tier weapons to high tier.\n* Custom config file, if you want to toggle the above features.\n\nNote: Config located in Terraria/ModLoader/Mod Configs\n\nContent:\n* 44 Fist Weapons\n* 9 Whip Weapons\n* 9 Saber Weapons\n* Quite a few other weapons\n* 25 Accessories (roughly)\n* 1 Tile\n* 3 Bullets\n\n\nNow has a wiki page: https://terrariamods.gamepedia.com/WeaponOut\nFolks on the discord server - Suggestions, bug testing and all-round support. You guys rock!\nkiedev666 - The first playtester.\n\nMod recommendations:\nVirtuous = Adds a whole bunch of cool and unique weapons.\nUnuBattleRods = Adds a fishing class that deals damage via special fishing rods that are also weapons.",
   "file": "https://mirror.sgkoi.dev/direct/WeaponOut.tmod",
-  "engine": "tmodloader"
-}, {
-  "name": "见血封喉(Antiaris)",
-  "writer": "Zadum4ivii, Sprywisp, Gouvod, Vikri, Nokilos, CookieSam",
-  "icon": "https://mirror.sgkoi.dev/direct/Antiaris.png",
-  "description": "Lanzou分享提取码: 6kbh\n<img width=500 src=\"https://forums.terraria.org/index.php?attachments/antiaris-6-gif.190577/\">\nIntroduction\n\nAntiaris is a new project from part of team which made Tremor Mod.\nWe decided to stop developing of Tremor Mod and make a completely new project.\nContent in Antiaris will be more interesting, balanced and unique, unlike in Tremor, since we decided to go with \"Quality > Quantity\".\nOur team will try to make the game bigger, make the player feel more interested in game.\nCheck the thread everyday for more information & spoilers!",
-  "link": "https://forums.terraria.org/index.php?threads/antiaris.59884/",
-  "file": "https://wwp.lanzoui.com/i0HZJ2tz1clg",
   "engine": "tmodloader"
 }, {
   "name": "Archeon",
