@@ -144,7 +144,7 @@
     "engine": "tefmodloader"
   },
   {
-    "engine": "test",
+    "engine": "disable",
     "id": "4955264980e2a00debf5354656b6b98b9a1e15b4",
     "data": {
       "engine": "disable"
