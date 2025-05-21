@@ -18,7 +18,7 @@ async function loadMod( json = "./data/mods.json" ){
   object.search = function( kw = "" ){
     var result = []
     for( let addon of this.json ){
-      if( addon.name.includes( kw ) || addon.description.includes( kw ) ){
+      if( (addon.name || "").includes( kw ) || (addon.description || "").includes( kw ) ){
         result.push( {...addon, html(){return object.generate(this, object.json.indexOf( addon ))}} )
       }
     }
