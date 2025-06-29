@@ -1,0 +1,18 @@
+/* 平滑过渡效果 */
+.top-app-bar,
+.nav-drawer,
+.card,
+.button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 悬停效果增强 */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 点击反馈 */
+.button:active {
+    transform: scale(0.98);
+}

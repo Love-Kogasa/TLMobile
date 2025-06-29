@@ -1,0 +1,154 @@
+/* 基础按钮样式 */
+.button {
+    --_container-color: var(--md-sys-color-primary);
+    --_label-text-color: var(--md-sys-color-on-primary);
+    --_state-layer-color: var(--md-sys-color-on-primary);
+    --_hover-state-layer-opacity: 0.08;
+    --_pressed-state-layer-opacity: 0.12;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 40px;
+    border-radius: var(--md-sys-shape-corner-full);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    transition:
+            box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+            background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* 容器颜色 */
+    background-color: var(--_container-color);
+    color: var(--_label-text-color);
+
+    /* 高程阴影 */
+    box-shadow: var(--md-sys-elevation-1);
+}
+
+/* 悬停和焦点状态 */
+.button:hover,
+.button:focus {
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+/* 状态层（MD3特色） */
+.button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--_state-layer-color);
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover::after {
+    opacity: var(--_hover-state-layer-opacity);
+}
+
+.button:active::after {
+    opacity: var(--_pressed-state-layer-opacity);
+}
+
+/* 禁用状态 */
+.button:disabled {
+    --_container-color: rgba(var(--md-sys-color-on-surface), 0.12);
+    --_label-text-color: rgba(var(--md-sys-color-on-surface), 0.38);
+
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.button:disabled::after {
+    display: none;
+}
+
+/* 图标按钮 */
+.button__icon {
+    margin-right: 8px;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 文本按钮变体 */
+.button--text {
+    --_container-color: transparent;
+    --_label-text-color: var(--md-sys-color-primary);
+    --_state-layer-color: var(--md-sys-color-primary);
+
+    box-shadow: none;
+    padding: 0 12px;
+}
+
+/* 轮廓按钮变体 */
+.button--outlined {
+    --_container-color: transparent;
+    --_label-text-color: var(--md-sys-color-primary);
+    --_state-layer-color: var(--md-sys-color-primary);
+
+    box-shadow: none;
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+/* 填充式按钮变体 */
+.button--filled {
+    /* 默认样式已经处理 */
+}
+
+/* 强调色调按钮 */
+.button--tonal {
+    --_container-color: var(--md-sys-color-secondary-container);
+    --_label-text-color: var(--md-sys-color-on-secondary-container);
+    --_state-layer-color: var(--md-sys-color-on-secondary-container);
+}
+
+/* 危险操作按钮 */
+.button--danger {
+    --_container-color: var(--md-sys-color-error);
+    --_label-text-color: var(--md-sys-color-on-error);
+    --_state-layer-color: var(--md-sys-color-on-error);
+}
+
+/* 不同尺寸 */
+.button--small {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 0.75rem;
+}
+
+.button--large {
+    height: 48px;
+    padding: 0 24px;
+    font-size: 1rem;
+}
+
+/* 全宽按钮 */
+.button--fullwidth {
+    display: flex;
+    width: 100%;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+    .button {
+        height: 36px;
+        padding: 0 16px;
+    }
+
+    .button--large {
+        height: 44px;
+    }
+}

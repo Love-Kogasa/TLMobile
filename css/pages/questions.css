@@ -1,0 +1,115 @@
+.faq-container {
+    max-width: 800px;
+    margin: 80px auto 24px;
+    padding: 0 16px;
+}
+
+.faq-section {
+    margin-bottom: 32px;
+}
+
+.faq-section__title {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--md-sys-color-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.faq-section__title .material-icons {
+    margin-right: 8px;
+}
+
+.faq-note {
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: var(--md-sys-shape-corner-medium);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    color: var(--md-sys-color-on-surface-variant);
+    display: flex;
+    align-items: flex-start;
+}
+
+.faq-note .material-icons {
+    margin-right: 8px;
+    color: var(--md-sys-color-primary);
+}
+
+.faq-item {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-medium);
+    box-shadow: var(--md-sys-elevation-1);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.faq-item:hover {
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+    background-color: var(--md-sys-color-surface);
+}
+
+.faq-question .material-icons {
+    margin-right: 12px;
+    color: var(--md-sys-color-primary);
+}
+
+.faq-question h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.faq-answer {
+    padding: 0 16px 16px 52px;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.faq-answer p {
+    margin-bottom: 8px;
+}
+
+.faq-answer a {
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+}
+
+.faq-answer a:hover {
+    text-decoration: underline;
+}
+
+.faq-answer code {
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: var(--md-sys-shape-corner-small);
+    padding: 2px 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .faq-container {
+        margin-top: 72px;
+        padding: 0 12px;
+    }
+
+    .faq-question {
+        padding: 12px;
+    }
+
+    .faq-answer {
+        padding: 0 12px 12px 44px;
+    }
+}

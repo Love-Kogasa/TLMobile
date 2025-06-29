@@ -1,0 +1,77 @@
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--md-sys-color-surface);
+    z-index: 101;
+    transition: transform 0.3s ease;
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+.nav-drawer--open {
+    transform: translateX(300px);
+}
+
+.nav-drawer__header {
+    padding: 24px 16px;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+.nav-drawer__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.nav-drawer__subtitle {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: var(--md-sys-color-on-surface);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.nav-item {
+    position: relative;
+    padding-left: 16px;
+}
+
+.nav-item__icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0;
+}
+
+.nav-item__text {
+    padding-left: 40px;
+}
+
+.nav-item[href^="doc/"],
+.nav-item[href^="tools/"],
+.nav-item[href^="mdviewer"],
+.nav-item[href^="http"] {
+    padding-left: 32px;
+}
+
+.nav-item[href^="doc/"] .nav-item__icon,
+.nav-item[href^="tools/"] .nav-item__icon,
+.nav-item[href^="mdviewer"] .nav-item__icon,
+.nav-item[href^="http"] .nav-item__icon {
+    left: 32px;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--md-sys-color-surface-variant);
+    margin: 8px 0;
+}

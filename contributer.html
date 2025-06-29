@@ -1,54 +1,110 @@
-<!doctype>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="css/picnic.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script src="js/moddata.js"></script>
-    <script src="js/contributer.js"></script>
-    <script>
-      window.onload = async () => {
-        var mdd = await loadMod()
-        var ctr = await loadConr()
-        for( let people of ctr.json.dev ){
-          dev.innerHTML += ctr.html( people )
-        }
-        for( let people of ctr.json.mod ){
-          mod.innerHTML += ctr.html( people )
-        }
-        modsearch.oninput = () => {
-          mods.innerHTML = ""
-          for( let mod of mdd.search( modsearch.value )){
-            mods.innerHTML += mod.html()
-          }
-        }
-        modsearch.oninput()
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贡献者 - TLMobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/utilities.css" rel="stylesheet">
+  <link href="css/components/animations.css" rel="stylesheet">
+  <link href="css/components/buttons.css" rel="stylesheet">
+  <link href="css/components/cards.css" rel="stylesheet">
+  <link href="css/components/icons.css" rel="stylesheet">
+  <link href="css/components/nav-drawer.css" rel="stylesheet">
+  <link href="css/components/top-app-bar.css" rel="stylesheet">
+  <link href="css/components/hero.css" rel="stylesheet">
+  <link href="css/pages/contributors.css" rel="stylesheet">
+  <script src="js/moddata.js"></script>
+  <script src="js/contributer.js"></script>
+</head>
+<body>
+<!-- 顶部应用栏 -->
+<header class="top-app-bar">
+  <button id="menu-button" class="material-icons" onclick="history.back()">arrow_back</button>
+  <div class="top-app-bar__title">
+    <img src="imgs/logo.png" class="top-app-bar__logo" alt="TLMobile Logo">
+    <span>贡献者</span>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="contributors-container">
+  <section class="contributors-section">
+    <h2 class="section-title">
+      <span class="material-icons">groups</span>
+      <span>开发贡献者</span>
+    </h2>
+    <p class="section-subtitle">感谢所有为TLMobile做出贡献的朋友<br><s>让我可以摆烂</s></p>
+    <div id="dev" class="contributors-grid"></div>
+  </section>
+
+  <section class="contributors-section">
+    <h2 class="section-title">
+      <span class="material-icons">extension</span>
+      <span>模组提交榜</span>
+    </h2>
+    <p class="section-subtitle">感谢各位朋友们的支持</p>
+    <div id="mod" class="contributors-grid"></div>
+  </section>
+
+  <!-- 搜索结果容器 -->
+  <div id="mods" class="search-results"></div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const mdd = await loadMod();
+    const ctr = await loadConr();
+
+    // 渲染开发者
+    const devContainer = document.getElementById('dev');
+    for(let people of ctr.json.dev) {
+      devContainer.innerHTML += createContributorCard(people);
+    }
+
+    // 渲染模组提交者
+    const modContainer = document.getElementById('mod');
+    for(let people of ctr.json.mod) {
+      modContainer.innerHTML += createContributorCard(people);
+    }
+
+    // 搜索功能
+    const searchInput = document.getElementById('modsearch');
+    const modsContainer = document.getElementById('mods');
+
+    searchInput.addEventListener('input', () => {
+      modsContainer.innerHTML = "";
+      const results = mdd.search(searchInput.value);
+
+      if(results.length > 0) {
+        results.forEach(mod => {
+          modsContainer.innerHTML += createModCard(mod);
+        });
+        modsContainer.style.display = 'block';
+      } else {
+        modsContainer.style.display = 'none';
       }
-    </script>
-  </head>
-  <body>
-    <nav class="demo imponent">
-      <a href="./index.html" class="brand">
-         <img src="imgs/logo.png" class="logo">
-        <span>TLMobile</span>
-      </a>
-      <input id="bmenug" type="checkbox" class="show">
-      <label for="bmenug" class="burger pseudo button">&#8801;</label>
-      <div class="menu" style="padding: 5px;">
-        <input placeholder="搜索模组" id="modsearch"/>
-        <div id="mods">
+    });
+  });
+
+  // 创建贡献者卡片
+  function createContributorCard(person) {
+    return `
+        <div class="contributor-card">
+          <img src="${person.avatar || 'imgs/default-avatar.png'}"
+               class="contributor-avatar"
+               onerror="this.src='imgs/default-avatar.png'"
+               alt="${person.name}">
+          <div class="contributor-info">
+            <h3 class="contributor-name">${person.name}</h3>
+            <p class="contributor-role">${person.role || '贡献者'}</p>
+            ${person.link ? `<a href="${person.link}" class="contributor-link" target="_blank">查看详情</a>` : ''}
+          </div>
         </div>
-      </div>
-    </nav><br>
-    <div class="container">
-      <h2 id="n">贡献者</h2>
-      <p id="info">感谢所有为TLMobile做出贡献的朋友<br><s>让我可以摆烂</s></p>
-      <div id="dev"></div>
-      <h2 id="n">模组提交榜</h2>
-      <p id="info">感谢各位朋友们的支持</p>
-      <div id="mod"></div>
-    </div>
-  </body>
+      `;
+  }
+</script>
+</body>
 </html>

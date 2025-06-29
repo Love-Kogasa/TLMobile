@@ -1,58 +1,89 @@
-<!doctype>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../css/picnic.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script src="../js/moddata.js"></script>
-    <script>
-      window.onload = async () => {
-        var mdd = await loadMod()
-        modsearch.oninput = () => {
-          mods.innerHTML = ""
-          for( let mod of mdd.search( modsearch.value )){
-            mods.innerHTML += mod.html()
-          }
-        }
-        modsearch.oninput()
-      }
-    </script>
-  </head>
-  <body>
-    <nav class="demo imponent">
-      <a href="../index.html" class="brand">
-         <img src="../imgs/logo.png" class="logo">
-        <span>TLMobile</span>
-      </a>
-      <input id="bmenug" type="checkbox" class="show">
-      <label for="bmenug" class="burger pseudo button">&#8801;</label>
-      <div class="menu" style="padding: 5px;">
-        <input placeholder="搜索模组" id="modsearch"/>
-        <div id="mods">
-        </div>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TmodLoader教程 - TLMobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../css/utilities.css" rel="stylesheet">
+  <link href="../css/components/animations.css" rel="stylesheet">
+  <link href="../css/components/buttons.css" rel="stylesheet">
+  <link href="../css/components/cards.css" rel="stylesheet">
+  <link href="../css/components/icons.css" rel="stylesheet">
+  <link href="../css/components/nav-drawer.css" rel="stylesheet">
+  <link href="../css/components/top-app-bar.css" rel="stylesheet">
+  <link href="../css/components/hero.css" rel="stylesheet">
+  <link href="../css/pages/tutorial.css" rel="stylesheet">
+  <script src="../js/moddata.js"></script>
+</head>
+<body>
+<!-- 顶部应用栏 -->
+<header class="top-app-bar">
+  <button id="menu-button" class="material-icons" onclick="history.back()">arrow_back</button>
+  <div class="top-app-bar__title">
+    <img src="../imgs/logo.png" class="top-app-bar__logo" alt="TLMobile Logo">
+    <span>TmodLoader教程</span>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="tutorial-container">
+  <article class="tutorial-article">
+    <div class="tutorial-header">
+      <h1>TmodLoader 移植版Mod教程</h1>
+      <div class="tutorial-author">
+        <span class="material-icons">person</span>
+        <span>编写者: @Love-Kogasa</span>
       </div>
-    </nav><br>
-    <div class="container">
-      <h2>TmodLoader 移植版Mod教程</h2>
-      <p>编写者: @Love-Kogasa</p><br>
-      <h2>Step 1</h2>
-      <p>下载并安装TmodLoader</p>
-      一般的，这种软件应用商店不会给你下载()，不过你可以去浏览器找一个下载站下载，或者去Bilibili上找下载链接<br>
-      <s>我把我下载的那个链接忘了，要不然肯定给你们下载</s><br>
-      另外你需要下载一个Mt管理器(mt2.cn)，这样方便操作，如果是小米手机的话，这个可以去应用商店下载<br>
-      一般Tmodloader的apk文件在300-400mb之间，进一步验证可以下载下来拆包检验<br>
-      另附，一般的安装包包名(不是apk文件名)应该是 <i>ModLoader.Explendesco</i><br><br>
-      <h2>Step 2</h2>
-      <p>下载并安装Mod</p>
-      下载你想玩的mod(本站或模组浏览器，不建议进群下载，群文件可能是向魔改PETML适配的，而本站收录的mod是向旧版(网络最流传的版本)适配的)，打开mt管理器在Download中搜索.tmod(.zip后缀则搜索zip然后点开)，.tmod后缀的文件便是tmodloader的mod文件<br>
-      启动一次tmodloader后，将你的Tmod文件复制(或移动)到目录 <pre>/storage/emulated/0/Android/data/ModLoader.Explendesco/Mods/</pre> 即可，打开tmodloader，点模组管理，双击mod，点重新加载即可<br>
-      如果有.locpack(汉化)文件，并解压到<pre>/storage/emulated/0/Android/data/ModLoader.Explendesco/Localizations/</pre> 即可，tModLoader会在加载mod后自动加载
-      <br><br>
-      <h2>Step 3</h2>
-      <p>启动游戏</p>
-      点单人游戏，创建角色，创建世界(不显示进度也是正常的)，就可以了<br>如果觉得卡顿建议将关照模式调成复古，如果还卡可以关闭跳帧
     </div>
-  </body>
+
+    <!-- 搜索结果容器 -->
+    <div id="mods" class="search-results"></div>
+
+    <!-- 教程内容 -->
+    <section class="tutorial-step">
+      <div class="step-header">
+        <span class="step-number">1</span>
+        <h2>下载并安装TmodLoader</h2>
+      </div>
+      <div class="step-content">
+        <p>一般的，这种软件应用商店不会给你下载()，不过你可以去浏览器找一个下载站下载，或者去Bilibili上找下载链接</p>
+        <p class="note"><s>我把我下载的那个链接忘了，要不然肯定给你们下载</s></p>
+        <p>另外你需要下载一个Mt管理器(mt2.cn)，这样方便操作，如果是小米手机的话，这个可以去应用商店下载</p>
+        <p>一般Tmodloader的apk文件在300-400mb之间，进一步验证可以下载下来拆包检验</p>
+        <p>另附，一般的安装包包名(不是apk文件名)应该是 <code>ModLoader.Explendesco</code></p>
+      </div>
+    </section>
+
+    <section class="tutorial-step">
+      <div class="step-header">
+        <span class="step-number">2</span>
+        <h2>下载并安装Mod</h2>
+      </div>
+      <div class="step-content">
+        <p>下载你想玩的mod(本站或模组浏览器，不建议进群下载，群文件可能是向魔改PETML适配的，而本站收录的mod是向旧版(网络最流传的版本)适配的)，打开mt管理器在Download中搜索.tmod(.zip后缀则搜索zip然后点开)，.tmod后缀的文件便是tmodloader的mod文件</p>
+        <p>启动一次tmodloader后，将你的Tmod文件复制(或移动)到目录：</p>
+        <pre>/storage/emulated/0/Android/data/ModLoader.Explendesco/Mods/</pre>
+        <p>即可，打开tmodloader，点模组管理，双击mod，点重新加载即可</p>
+        <p>如果有.locpack(汉化)文件，并解压到：</p>
+        <pre>/storage/emulated/0/Android/data/ModLoader.Explendesco/Localizations/</pre>
+        <p>即可，tModLoader会在加载mod后自动加载</p>
+      </div>
+    </section>
+
+    <section class="tutorial-step">
+      <div class="step-header">
+        <span class="step-number">3</span>
+        <h2>启动游戏</h2>
+      </div>
+      <div class="step-content">
+        <p>点单人游戏，创建角色，创建世界(不显示进度也是正常的)，就可以了</p>
+        <p>如果觉得卡顿建议将关照模式调成复古，如果还卡可以关闭跳帧</p>
+      </div>
+    </section>
+  </article>
+</main>
+</body>
 </html>

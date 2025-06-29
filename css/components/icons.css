@@ -1,0 +1,44 @@
+/* 图标基础样式 */
+.material-icons {
+    font-family: 'Material Icons', serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+/* 导航图标大小调整 */
+.nav-item__icon {
+    font-size: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+/* 按钮图标样式 */
+.button__icon {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* 特定图标颜色 */
+.icon-primary {
+    color: var(--md-sys-color-primary);
+}
+
+.icon-on-primary {
+    color: var(--md-sys-color-on-primary);
+}
+
+.icon-surface-variant {
+    color: var(--md-sys-color-on-surface-variant);
+}

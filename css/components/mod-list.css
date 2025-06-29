@@ -1,0 +1,142 @@
+/* 模组列表容器 */
+.mod-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+/* 列表头部 - 水平布局 */
+.mod-list-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 24px;
+}
+
+/* 列表标题 */
+.mod-list-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--md-sys-color-primary);
+    white-space: nowrap;
+}
+
+/* 搜索框 */
+.mod-list-search {
+    flex: 1;
+    min-width: 200px;
+    max-width: 500px;
+}
+
+.mod-list-search input {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface);
+}
+
+/* 模组网格布局 */
+.mod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* 模组卡片 */
+.mod-card {
+    background: var(--md-sys-color-surface);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 卡片内容区域 */
+.mod-card__content {
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* MOD图标 */
+.mod-icon {
+    max-width: 48px;   /* 设置最大宽度 */
+    max-height: 48px;  /* 设置最大高度 */
+    width: auto;       /* 保持原始宽高比 */
+    height: auto;      /* 保持原始宽高比 */
+    object-fit: contain;
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: var(--md-sys-shape-corner-medium);
+    box-shadow: var(--md-sys-elevation-1);
+    flex-shrink: 0;
+}
+
+/* 可选：如果希望图标总是显示为正方形 */
+.mod-icon.square {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* 卡片标题（单行省略） */
+.mod-card__title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 卡片描述（最多3行省略） */
+.mod-card__description {
+    font-size: 0.875rem;
+    color: var(--md-sys-color-on-surface-variant);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 卡片底部 - 只包含引擎标识 */
+.mod-card__footer {
+    padding: 12px 16px;
+    border-top: 1px solid var(--md-sys-color-surface-variant);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 引擎标签 - 圆形样式 */
+.mod-card__engine {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .mod-list-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .mod-list-search {
+        max-width: 100%;
+    }
+
+    .mod-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,37 +1,54 @@
-<!doctype>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="css/picnic.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script src="js/moddata.js"></script>
-    <script>
-      window.onload = async () => {
-        var mdd = await loadMod()
-        var url = new URL( window.location.href ).searchParams
-        modsearch.oninput = () => {
-          mods.innerHTML = ""
-          for( let mod of mdd.search( modsearch.value )){
-            if( mod.engine === "tefmodloader" ) mods.innerHTML += mod.html()
-          }
-        }
-        modsearch.oninput()
-      }
-    </script>
-  </head>
-  <body>
-    <nav class="demo imponent">
-      <a href="./index.html" class="brand">
-         <img src="imgs/logo.png" class="logo">
-        <span>TLMobile - TEFModLoader Mods</span>
-      </a>
-    </nav><br><br>
-    <div class="container">
-      <input placeholder="搜索适配手机TEFModloader的Mod" id="modsearch"><br>
-      <div id="mods" style="max-height: 77vh; overflow: auto;">
-      </div>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLMobile - TEFModLoader Mods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/utilities.css" rel="stylesheet">
+  <link href="css/components/top-app-bar.css" rel="stylesheet">
+  <link href="css/components/mod-list.css" rel="stylesheet">
+  <script src="js/moddata.js"></script>
+</head>
+<body>
+<!-- 顶部应用栏 -->
+<header class="top-app-bar">
+  <button id="menu-button" class="material-icons" onclick="history.back()">arrow_back</button>
+  <div class="top-app-bar__title">
+    <img src="imgs/logo.png" class="top-app-bar__logo" alt="TLMobile Logo">
+    <span>TEFModLoader Mods</span>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="mod-list-container">
+  <div class="mod-list-header">
+    <h1 class="mod-list-title">TEFModLoader Mods</h1>
+    <div class="mod-list-search">
+      <span class="material-icons">search</span>
+      <label for="modsearch"></label><input type="text" id="modsearch" placeholder="搜索TEFModLoader Mods">
     </div>
-  </body>
+  </div>
+
+  <div id="mods" class="mod-grid"></div>
+</main>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    var mdd = await loadMod()
+    var url = new URL( window.location.href ).searchParams
+    modsearch.oninput = () => {
+      mods.innerHTML = ""
+      for( let mod of mdd.search( modsearch.value )){
+        if( mod.engine === "tefmodloader" ) mods.innerHTML += mod.html()
+      }
+    }
+    modsearch.oninput()
+  });
+
+</script>
+</body>
 </html>

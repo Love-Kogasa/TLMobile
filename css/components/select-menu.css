@@ -1,0 +1,242 @@
+/* 新增的MD3选择菜单样式 */
+.select-menu {
+    position: relative;
+    margin: 8px 0 16px;
+    width: 100%;
+}
+
+.select-menu__label {
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 12px;
+    line-height: 16px;
+    transform-origin: left top;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.select-menu__button {
+    width: 100%;
+    height: 56px;
+    padding: 23px 16px 9px;
+    border-radius: var(--md-sys-shape-corner-small);
+    border: 1px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.select-menu__button:hover {
+    border-color: var(--md-sys-color-on-surface);
+}
+
+.select-menu__button:focus {
+    outline: none;
+    border-color: var(--md-sys-color-primary);
+    caret-color: var(--md-sys-color-primary);
+}
+
+.select-menu__button--active {
+    border-color: var(--md-sys-color-primary);
+}
+
+.select-menu__button--active + .select-menu__label {
+    color: var(--md-sys-color-primary);
+}
+
+.select-menu__icon {
+    color: var(--md-sys-color-on-surface-variant);
+    transition: transform 0.2s ease;
+}
+
+.select-menu__button--active .select-menu__icon {
+    transform: rotate(180deg);
+    color: var(--md-sys-color-primary);
+}
+
+.select-menu__dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-small);
+    box-shadow: var(--md-sys-elevation-2);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+}
+
+.select-menu__dropdown--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.select-menu__option {
+    padding: 16px;
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.select-menu__option:hover {
+    background-color: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+}
+
+.select-menu__option--selected {
+    background-color: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
+    color: var(--md-sys-color-primary);
+}
+
+/* 输入字段样式 */
+.input-field {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-field label {
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 12px;
+    line-height: 16px;
+    transform-origin: left top;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.input-field input,
+.input-field textarea,
+.input-field select {
+    width: 100%;
+    padding: 23px 16px 9px;
+    border-radius: var(--md-sys-shape-corner-small);
+    border: 1px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.input-field input:focus,
+.input-field textarea:focus,
+.input-field select:focus {
+    outline: none;
+    border-color: var(--md-sys-color-primary);
+    caret-color: var(--md-sys-color-primary);
+}
+
+.input-field input:focus + label,
+.input-field textarea:focus + label,
+.input-field select:focus + label {
+    color: var(--md-sys-color-primary);
+}
+
+.json-preview {
+    background-color: var(--md-sys-color-surface-variant);
+    padding: 16px;
+    border-radius: var(--md-sys-shape-corner-small);
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin-top: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 图片上传样式 */
+.image-upload {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.image-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--md-sys-shape-corner-medium);
+    background-color: var(--md-sys-color-surface-variant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.image-preview .material-icons {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 16px;
+}
+
+/* 卡片样式 */
+.generator-card {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-medium);
+    padding: 24px;
+    box-shadow: var(--md-sys-elevation-1);
+    margin-bottom: 24px;
+}
+
+.card-title {
+    color: var(--md-sys-color-on-surface);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.card-subtitle {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* 按钮容器 */
+.action-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* 上传部分 */
+.upload-section {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.upload-section h3 {
+    color: var(--md-sys-color-on-surface);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}

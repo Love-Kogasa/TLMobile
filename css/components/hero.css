@@ -1,0 +1,131 @@
+/* Hero 容器 */
+.hero {
+    --_container-color: var(--md-sys-color-surface);
+    --_headline-color: var(--md-sys-color-primary);
+    --_supporting-text-color: var(--md-sys-color-on-surface-variant);
+    --_button-container-color: var(--md-sys-color-primary);
+    --_button-label-color: var(--md-sys-color-on-primary);
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 64px 24px;
+    margin-bottom: 32px;
+    background-color: var(--_container-color);
+    overflow: hidden;
+}
+
+/* Hero 标题 */
+.hero__title {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    color: var(--_headline-color);
+    max-width: 800px;
+}
+
+/* Hero 副标题 */
+.hero__subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 auto 32px;
+    color: var(--_supporting-text-color);
+    max-width: 800px;
+    opacity: 0.9;
+}
+
+/* Hero 按钮容器 */
+.hero__actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* Hero 背景装饰（可选） */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--md-sys-color-primary-container) 0%, transparent 70%);
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 900px) {
+    .hero {
+        padding: 48px 24px;
+    }
+
+    .hero__title {
+        font-size: 2.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 32px 16px;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero__actions .button {
+        width: 100%;
+    }
+}
+
+/* Hero 变体 */
+.hero--primary {
+    --_container-color: var(--md-sys-color-primary);
+    --_headline-color: var(--md-sys-color-on-primary);
+    --_supporting-text-color: var(--md-sys-color-on-primary);
+    --_button-container-color: var(--md-sys-color-on-primary);
+    --_button-label-color: var(--md-sys-color-primary);
+}
+
+.hero--secondary {
+    --_container-color: var(--md-sys-color-secondary-container);
+    --_headline-color: var(--md-sys-color-on-secondary-container);
+    --_supporting-text-color: var(--md-sys-color-on-secondary-container);
+    --_button-container-color: var(--md-sys-color-on-secondary-container);
+    --_button-label-color: var(--md-sys-color-secondary-container);
+}
+
+/* Hero 内容对齐 */
+.hero--left {
+    text-align: left;
+    align-items: flex-start;
+}
+
+.hero--right {
+    text-align: right;
+    align-items: flex-end;
+}

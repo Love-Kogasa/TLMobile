@@ -1,133 +1,149 @@
-<!doctype>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="css/picnic.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script src="js/moddata.js"></script>
-    <script>
-      window.onload = async () => {
-        var mdd = await loadMod()
-        modsearch.oninput = () => {
-          mods.innerHTML = ""
-          for( let mod of mdd.search( modsearch.value )){
-            mods.innerHTML += mod.html()
-          }
-        }
-        modsearch.oninput()
-      }
-    </script>
-  </head>
-  <body>
-    <nav class="demo imponent">
-      <a href="#" class="brand">
-         <img src="imgs/logo.png" class="logo">
-        <span>TLMobile</span>
-      </a>
-      <input id="bmenug" type="checkbox" class="show">
-      <label for="bmenug" class="burger pseudo button">&#8801;</label>
-      <div class="menu" style="padding: 5px;">
-        <input placeholder="搜索模组" id="modsearch"/>
-        <div id="mods">
-          <!--<article class="card">
-            <header>
-              <div class="flex three">
-                <img src="https://mirror.sgkoi.dev/direct/WMITF.png">
-                <div style="white-space:nowrap;">
-                  WMITF<br>
-                  <font size=2>gardenapple</font>
-                </div>
-              </div>
-            </header>
-          </article>-->
-        </div>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/utilities.css" rel="stylesheet">
+  <link href="css/components/animations.css" rel="stylesheet">
+  <link href="css/components/buttons.css" rel="stylesheet">
+  <link href="css/components/cards.css" rel="stylesheet">
+  <link href="css/components/icons.css" rel="stylesheet">
+  <link href="css/components/nav-drawer.css" rel="stylesheet">
+  <link href="css/components/top-app-bar.css" rel="stylesheet">
+  <link href="css/components/hero.css" rel="stylesheet">
+</head>
+<body>
+<header class="top-app-bar">
+  <div class="top-app-bar__title">
+    <img src="imgs/logo.png" class="top-app-bar__logo" alt="">
+    <span>TLMobile</span>
+  </div>
+</header>
+
+<main class="main-content container">
+  <section class="hero">
+    <h1 class="hero__title">TLMobile</h1>
+    <p class="hero__subtitle">
+      一切为了Terraria手机MOD玩家<br>
+      本站为Terraria手机适配的Addon的收集站<br>
+      站点内资源均为免费<br>
+      站点由各位Terraria创作者共同维护<br>
+      您也可以加入聊天群: 991761801为此做出贡献
+    </p>
+    <a href="https://github.com/Love-Kogasa/tlmobile" class="button">
+      <span class="material-icons button__icon">code</span>
+      GitHub - 共建本站
+    </a>
+  </section>
+
+  <section class="section">
+    <h2 class="section__title">Mod 加载器</h2>
+    <p class="section__description">免费的Terraria手机版Mod加载器<br>不包括TrPro破解版</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <a href="tml.html" class="card__link">
+          <div class="card__header">
+            <img src="imgs/icon-tmodloader.png" class="card__icon" alt="">
+            <div class="card__title">TModLoader 移植版</div>
+          </div>
+        </a>
       </div>
-    </nav><br>
-    <div class="container">
-      <h2>TLMobile</h2>
-      <p>一切为了Terraria手机MOD玩家<br>本站为Terraria手机适配的Addon的收集站<br>站点内资源均为免费<br>站点由各位Terraria创作者共同维护<br>您也可以加入聊天群: 991761801为此做出贡献<br><a href="https://github.com/Love-Kogasa/tlmobile">Github - 共建本站/提出贡献</a></p>
-      <br>
-      <h2>Mod 加载器</h2>
-      <p>免费的Terraria手机版Mod加载器<br>不包括TrPro破解版</p>
-      <article class="card no-border">
-        <header>
-          <a href="./tml.html">
-            <img src="imgs/icon-tmodloader.png" width="32px" style="margin-bottom: -10px;">
-            <h4>TModLoader 移植版</h4>
-          </a>
-        </header>
-      </article>
-      <article class="card no-border">
-        <header>
-          <a href="./tef.html">
-            <img src="imgs/icon-tefmodloader.webp" width="32px" style="margin-bottom: -10px;">
-            <h4>TEFModLoader</h4>
-          </a>
-        </header>
-      </article>
-      <article class="card no-border">
-        <header>
-          <a href="./trv.html">
-            <img src="imgs/icon-terraria.png" width="32px" style="margin-bottom: -10px; border-radius: 50%;">
-            <h4>Terraria</h4>
-          </a>
-        </header>
-      </article>
-      <br>
-      <h2>Mod教程</h2>
-      <p>详细的泰拉瑞亚模组安装教程</p>
-      <article class="card no-border">
-        <header>
-          <a href="./doc/tml.html">
-            <img src="imgs/icon-tmodloader.png" width="32px" style="margin-bottom: -10px;">
-            <h4>TModLoader</h4>
-          </a>
-        </header>
-      </article>
-      <article class="card no-border">
-        <header>
-          <a href="./mdviewer.html#/doc/questions.md">
-            <img src="imgs/qaa.png" width="32px" style="margin-bottom: -10px;">
-            <h4>常见问题Q&A(更详细DOC)</h4>
-          </a>
-        </header>
-      </article>
-      <article class="card no-border">
-        <header>
-          <a href="https://b23.tv/qsRj8tD">
-            <img src="imgs/icon-tefmodloader.webp" width="32px" style="margin-bottom: -10px;">
-            <h4>TEFModLoader</h4>
-          </a>
-        </header>
-      </article><br>
-      <h2>其他/杂项</h2>
-      <p>一些杂项，总之是杂七腊八玩意啦w</p>
-      <article class="card no-border">
-        <header>
-          <a href="./contributer.html">
-            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="32px" style="margin-bottom: -10px;">
-            <h4>贡献者&模组提交者</h4>
-          </a>
-        </header>
-      </article>
-      <article class="card no-border">
-        <header>
-          <a href="./tools/json.html">
-            <img src="./imgs/tool.png" width="32px" style="margin-bottom: -10px;">
-            <h4>上传Mod(或生成ModJSON)</h4>
-          </a>
-        </header>
-      </article>
-      <article class="card no-border">
-        <header>
-          <a href="./tools/locrv.html">
-            <img src="./imgs/tool.png" width="32px" style="margin-bottom: -10px;">
-            <h4>汉化包(locpack)版本强改</h4>
-          </a>
-        </header>
-      </article>
+
+      <div class="card">
+        <a href="tef.html" class="card__link">
+          <div class="card__header">
+            <img src="imgs/icon-tefmodloader.webp" class="card__icon" alt="">
+            <div class="card__title">TEFModLoader</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="trv.html" class="card__link">
+          <div class="card__header">
+            <img src="imgs/icon-terraria.png" class="card__icon" alt="">
+            <div class="card__title">Terraria</div>
+          </div>
+        </a>
+      </div>
     </div>
-  </body>
+  </section>
+
+  <section class="section">
+    <h2 class="section__title">Mod教程</h2>
+    <p class="section__description">详细的泰拉瑞亚模组安装教程</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <a href="doc/tml.html" class="card__link">
+          <div class="card__header">
+            <img src="imgs/icon-tmodloader.png" class="card__icon" alt="">
+            <div class="card__title">TModLoader</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="doc/questions.html" class="card__link">
+          <div class="card__header">
+            <img src="imgs/qaa.png" class="card__icon" alt="">
+            <div class="card__title">常见问题Q&A(更详细DOC)</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="https://b23.tv/qsRj8tD" class="card__link">
+          <div class="card__header">
+            <img src="imgs/icon-tefmodloader.webp" class="card__icon" alt="">
+            <div class="card__title">TEFModLoader</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section__title">其他/杂项</h2>
+    <p class="section__description">一些杂项，总之是杂七腊八玩意啦w</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <a href="contributer.html" class="card__link">
+          <div class="card__header">
+            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" class="card__icon" alt="">
+            <div class="card__title">贡献者&模组提交者</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="tools/json.html" class="card__link">
+          <div class="card__header">
+            <img src="imgs/tool.png" class="card__icon" alt="">
+            <div class="card__title">上传Mod(或生成ModJSON)</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="tools/locrv.html" class="card__link">
+          <div class="card__header">
+            <img src="imgs/tool.png" class="card__icon" alt="">
+            <div class="card__title">汉化包版本强改</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/moddata.js"></script>
+<script src="js/main.js"></script>
+</body>
 </html>

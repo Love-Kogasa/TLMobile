@@ -1,127 +1,230 @@
-<!doctype>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../css/picnic.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="https://gskmail.thmobile.xyz/libs/message.min.css">
-    <script src="https://gskmail.thmobile.xyz/libs/message.min.js"></script>
-    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script>
-      window.onload = function(){
-        var defaultObject = {
-          name : "",
-          description: "",
-          link: "",
-          writer: "",
-          file: "",
-          icon: "./imgs/logo.png",
-          engine: "tmodloader",
-        }, name = document.getElementById( "name" )
-        copy.onclick = async function(){
-          await navigator.clipboard.writeText( JSON.stringify( defaultObject, 0, 2 ) )
-          alert( "复制成功！" )
-        }
-        function update(){
-          show.textContent = JSON.stringify( defaultObject, 0, 2 )
-        }
-        function input( key ){
-          return function(){
-            defaultObject[ key ] = this.value
-            update()
-          }
-        }
-        name.oninput = input( "name" )
-        by.oninput = input( "writer" )
-        description.oninput = input( "description" )
-        link.oninput = input( "link" )
-        file.oninput = input( "file" )
-        engine.oninput = input( "engine" )
-        icimg.onerror = function(){
-          this.src = "../imgs/logo.png"
-        }
-        icon.oninput = function(){
-          if( !this.value.includes( "://" ) ) return;
-          defaultObject[ "icon" ] = this.value
-          icimg.src = this.value
-          update()
-        }
-        icf.onchange = function(){
-          if( this.files[0] ){
-            var reader = new FileReader()
-            reader.onload = (e) => {
-              defaultObject.icon = e.target.result
-              update()
-              icimg.src = e.target.result
-            }
-            reader.readAsDataURL( this.files[0])
-          }
-        }
-        update()
-        upload.onclick = async function(){
-          if( ( /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/ ).test(uploader.value ) ){
-            var msg = Qmsg.loading( "正在发送请求至API" )
-            var {status} = await (await fetch( "https://api.lapis-net.top/trAddmod", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json"
-              },
-              body: JSON.stringify({
-                json: defaultObject,
-                mail: uploader.value,
-                site: "https://api.lapis-net.top"
-              })
-            })).json()
-            msg.close()
-            if( status == "success" ){
-              Qmsg.success( "上传成功，请留意邮箱" )
-            } else {
-              Qmsg.error( "上传失败，遇到了未知的错误" )
-            }
-          } else {
-            Qmsg.error( "邮箱格式错误！" )
-          }
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <nav class="demo imponent" style="z-index: 2">
-      <a href="../index.html" class="brand">
-         <img src="../imgs/logo.png" class="logo">
-        <span>TLMobile - JsonGenerater</span>
-      </a>
-    </nav><br>
-    <div class="container" style="overflow: auto;">
-      <p>在上传TMod前，请确保此Mod在0.11.6.2的tModLoader(非魔改版)中可以被正常加载！</p>
-      <input type="file" accept="image/*" id="icf" style="display: none;">
-      <div class="flex">
-        <img src="../imgs/logo.png" id="icimg" onclick="icf.click()">
-        <input placeholder="Mod图标" id="icon">
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON 生成器 - TLMobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../css/utilities.css" rel="stylesheet">
+  <link href="../css/components/animations.css" rel="stylesheet">
+  <link href="../css/components/buttons.css" rel="stylesheet">
+  <link href="../css/components/cards.css" rel="stylesheet">
+  <link href="../css/components/icons.css" rel="stylesheet">
+  <link href="../css/components/nav-drawer.css" rel="stylesheet">
+  <link href="../css/components/top-app-bar.css" rel="stylesheet">
+  <link href="../css/components/hero.css" rel="stylesheet">
+  <link href="../css/pages/generator.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://gskmail.thmobile.xyz/libs/message.min.css">
+  <script src="https://gskmail.thmobile.xyz/libs/message.min.js"></script>
+</head>
+<body>
+<!-- 顶部应用栏 -->
+<header class="top-app-bar">
+  <button id="menu-button" class="material-icons" onclick="history.back()">arrow_back</button>
+  <div class="top-app-bar__title">
+    <img src="../imgs/logo.png" class="top-app-bar__logo" alt="TLMobile Logo">
+    <span>JSON 生成器</span>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="generator-container">
+  <div class="generator-card">
+    <h2 class="card-title">MOD 信息生成</h2>
+    <p class="card-subtitle">在上传TMod前，请确保此Mod在0.11.6.2的tModLoader(非魔改版)中可以被正常加载！</p>
+
+    <!-- 图片上传 -->
+    <div class="input-group image-upload">
+      <input type="file" accept="image/*" id="icf" class="hidden">
+      <label for="icf" class="image-preview">
+        <img src="../imgs/logo.png" id="icimg">
+        <span class="material-icons">edit</span>
+      </label>
+      <div class="input-field">
+        <label for="icon">MOD 图标 URL</label>
+        <input type="text" id="icon" placeholder="https://example.com/icon.png">
       </div>
-      <div class="flex two">
-        <input placeholder="Mod名称" id="name">
-        <input placeholder="Mod作者" id="by">
-      </div>
-      <div class="flex">
-        <input placeholder="Mod链接" id="link">
-        <input placeholder="Mod文件(非原链接建议包含许可证)" id="file">
-        <select id="engine">
-          <option value="tmodloader">TmodLoader</option>
-          <option value="tefmodloader">TEFModLoader</option>
-          <option value="terraria">Terraria</option>
-        </select>
-        <textarea placeholder="Mod介绍" id="description" style="width: 100%; height: 25ch;"></textarea>
-      </div>
-      <div class="flex">
-        <pre style="height: 20ch;" id="show"></pre>
-        <button class="success" id="copy">复制(.json)</button>
-      </div><br>
-      <div class="flex">
-        <input placeholder="您的邮箱" type="email" id="uploader">
-        <button class="success" id="upload">上传到仓库</button>
-      </div><br>
     </div>
-  </body>
+
+    <!-- 基本信息 -->
+    <div class="input-row">
+      <div class="input-field">
+        <label for="name">MOD 名称</label>
+        <input type="text" id="name" placeholder="我的超棒MOD">
+      </div>
+      <div class="input-field">
+        <label for="by">MOD 作者</label>
+        <input type="text" id="by" placeholder="作者名">
+      </div>
+    </div>
+
+    <!-- 链接和文件 -->
+    <div class="input-field">
+      <label for="link">MOD 链接</label>
+      <input type="text" id="link" placeholder="https://example.com/mod">
+    </div>
+
+    <div class="input-field">
+      <label for="file">MOD 文件链接</label>
+      <input type="text" id="file" placeholder="https://example.com/mod.tmod">
+    </div>
+
+    <!-- 引擎选择 -->
+    <div class="input-field">
+      <label for="engine">MOD 引擎</label>
+      <select id="engine">
+        <option value="tmodloader">TmodLoader</option>
+        <option value="tefmodloader">TEFModLoader</option>
+        <option value="terraria">Terraria</option>
+      </select>
+    </div>
+
+    <!-- 描述 -->
+    <div class="input-field">
+      <label for="description">MOD 描述</label>
+      <textarea id="description" rows="5" placeholder="这个MOD有什么功能..."></textarea>
+    </div>
+
+    <!-- JSON 预览 -->
+    <div class="input-field">
+      <label>JSON 预览</label>
+      <pre id="show" class="json-preview"></pre>
+    </div>
+
+    <!-- 操作按钮 -->
+    <div class="action-buttons">
+      <button id="copy" class="button primary">
+        <span class="material-icons">content_copy</span>
+        <span>复制 JSON</span>
+      </button>
+    </div>
+
+    <!-- 上传表单 -->
+    <div class="upload-section">
+      <h3>上传到仓库</h3>
+      <div class="input-row">
+        <div class="input-field">
+          <label for="uploader">您的邮箱</label>
+          <input type="email" id="uploader" placeholder="your@email.com">
+        </div>
+        <button id="upload" class="button primary">
+          <span class="material-icons">cloud_upload</span>
+          <span>上传</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var defaultObject = {
+      name: "",
+      description: "",
+      link: "",
+      writer: "",
+      file: "",
+      icon: "../imgs/logo.png",
+      engine: "tmodloader",
+    };
+
+    // 复制按钮
+    document.getElementById('copy').addEventListener('click', async function() {
+      try {
+        await navigator.clipboard.writeText(JSON.stringify(defaultObject, 0, 2));
+        Qmsg.success("复制成功！");
+      } catch (err) {
+        Qmsg.error("复制失败: " + err);
+      }
+    });
+
+    // 更新JSON预览
+    function update() {
+      document.getElementById('show').textContent = JSON.stringify(defaultObject, 0, 2);
+    }
+
+    // 输入处理函数
+    function input(key) {
+      return function() {
+        defaultObject[key] = this.value;
+        update();
+      };
+    }
+
+    // 绑定输入事件
+    document.getElementById('name').addEventListener('input', input('name'));
+    document.getElementById('by').addEventListener('input', input('writer'));
+    document.getElementById('description').addEventListener('input', input('description'));
+    document.getElementById('link').addEventListener('input', input('link'));
+    document.getElementById('file').addEventListener('input', input('file'));
+    document.getElementById('engine').addEventListener('input', input('engine'));
+
+    // 图片处理
+    const icimg = document.getElementById('icimg');
+    icimg.onerror = function() {
+      this.src = "../imgs/logo.png";
+    };
+
+    document.getElementById('icon').addEventListener('input', function() {
+      if (!this.value.includes("://")) return;
+      defaultObject.icon = this.value;
+      icimg.src = this.value;
+      update();
+    });
+
+    document.getElementById('icf').addEventListener('change', function() {
+      if (this.files[0]) {
+        var reader = new FileReader();
+        reader.onload = (e) => {
+          defaultObject.icon = e.target.result;
+          update();
+          icimg.src = e.target.result;
+        };
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+
+    // 上传功能
+    document.getElementById('upload').addEventListener('click', async function() {
+      const email = document.getElementById('uploader').value;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (emailRegex.test(email)) {
+        const msg = Qmsg.loading("正在发送请求至API");
+        try {
+          const response = await fetch("https://api.lapis-net.top/trAddmod", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({
+              json: defaultObject,
+              mail: email,
+              site: "https://api.lapis-net.top"
+            })
+          });
+          const {status} = await response.json();
+          msg.close();
+
+          if (status == "success") {
+            Qmsg.success("上传成功，请留意邮箱");
+          } else {
+            Qmsg.error("上传失败，遇到了未知的错误");
+          }
+        } catch (error) {
+          msg.close();
+          Qmsg.error("上传失败: " + error.message);
+        }
+      } else {
+        Qmsg.error("邮箱格式错误！");
+      }
+    });
+
+    // 初始更新
+    update();
+  });
+</script>
+</body>
 </html>

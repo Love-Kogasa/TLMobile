@@ -1,0 +1,175 @@
+/* LocPack 工具特定样式 */
+.tool-container {
+    max-width: 800px;
+    margin: 80px auto 24px;
+    padding: 0 16px;
+}
+
+.tool-card {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-medium);
+    padding: 24px;
+    box-shadow: var(--md-sys-elevation-1);
+}
+
+.tool-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    color: var(--md-sys-color-primary);
+}
+
+.tool-description {
+    font-size: 0.875rem;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+/* 上传区域 */
+.upload-area {
+    border: 2px dashed var(--md-sys-color-outline);
+    border-radius: var(--md-sys-shape-corner-medium);
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.upload-area.has-file {
+    border-color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-primary-container);
+}
+
+.upload-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border-radius: var(--md-sys-shape-corner-full);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 12px;
+}
+
+.upload-button .material-icons {
+    margin-right: 8px;
+}
+
+.file-name {
+    font-size: 0.875rem;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.hidden {
+    display: none;
+}
+
+/* 输入字段 */
+.input-field {
+    margin-bottom: 24px;
+}
+
+.input-field label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 8px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: var(--md-sys-shape-corner-small);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+/* 操作按钮 */
+.action-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: var(--md-sys-shape-corner-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    border: none;
+}
+
+.button .material-icons {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.primary {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+
+.secondary {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+/* 信息面板 */
+.info-panel {
+    margin-top: 32px;
+    padding: 16px;
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: var(--md-sys-shape-corner-medium);
+}
+
+.info-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+    color: var(--md-sys-color-primary);
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.info-item .material-icons {
+    font-size: 16px;
+    margin-right: 8px;
+    color: var(--md-sys-color-primary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .tool-container {
+        margin-top: 72px;
+        padding: 0 12px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+}

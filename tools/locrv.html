@@ -1,70 +1,182 @@
-<!doctype>
-<html>
-  <head>
+<!doctype html>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../css/picnic.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocPack 工具 - TLMobile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/utilities.css" rel="stylesheet">
+    <link href="../css/components/animations.css" rel="stylesheet">
+    <link href="../css/components/buttons.css" rel="stylesheet">
+    <link href="../css/components/cards.css" rel="stylesheet">
+    <link href="../css/components/icons.css" rel="stylesheet">
+    <link href="../css/components/nav-drawer.css" rel="stylesheet">
+    <link href="../css/components/top-app-bar.css" rel="stylesheet">
+    <link href="../css/components/hero.css" rel="stylesheet">
+    <link href="../css/pages/loc-pack.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://gskmail.thmobile.xyz/libs/message.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="../js/locRedata.js"></script>
-    <link rel="stylesheet" href="https://gskmail.thmobile.xyz/libs/message.min.css">
     <script src="https://gskmail.thmobile.xyz/libs/message.min.js"></script>
-    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script>
-      window.onload = function(){
-        fup.onchange = () => {
-          if( fup.files[0] ){
-            Qmsg.success( "文件" + fup.files[0].name + "加载成功！" )
-          }
-        }
-        submit.onclick = () => {
-          if( fup.files[0] && targetVersion.value != "" && fup.files[0].name.includes( ".locpack" ) ){
-            var loadingMessage = Qmsg.loading( "转换中..." )
-            var reader = new FileReader()
-            reader.onload = async (e) => {
-             try {
-   var downloader = document.createElement( "a" )
-              downloader.download = fup.files[0].name
-              downloader.href  = await readPackageFromLocpack( e.target.result, ( package ) => {
-                Qmsg.success( "目标版本: " + targetVersion.value )
-                package.ModVersion = targetVersion.value
-                Qmsg.success( "汉化包名称: " + package.Name )
-                Qmsg.success( "汉化包作者: " + package.Author )
-                Qmsg.success( "汉化包所对应的mod: " + package.LocalizedModName )
-                Qmsg.success( "汉化包介绍信息见控制台" )
-                console.log( package.Description )
-                package.Description = "本汉化包版本使用 https://tlm.lapis-net.top/tools/locrv.html 强改，可能存在一定问题\n" + package.Description
-              })
-              downloader.click()
-              Qmsg.success( "修改成功！" )
-              loadingMessage.close()
-} catch( err ){
-  alert( err )
-}
-            }
-            reader.readAsArrayBuffer( fup.files[0] )
-          } else {
-            Qmsg.error( "未提交文件或者无目标版本或者文件格式错误" )
-          }
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <nav class="demo imponent" style="z-index: 2">
-      <a href="../index.html" class="brand">
-         <img src="../imgs/logo.png" class="logo">
-        <span>TLMobile - LocPackTool</span>
-      </a>
-    </nav><br>
-    <div class="container" style="overflow: auto;">
-       <h2>LocPack ReVersion</h2>
-       <p>通过强改汉化包的mod适配版本，从而达到旧版使用新版汉化，大部分人都可以玩到Mod汉化包的效果<br>其可行性是由于locpack与材质包加载方式相似，且格式一直以来并没有太大的变动，因此大部分理论来说强改可用</p>
-       <button onclick="fup.click()">上传文件(.locpack)</button>
-       <input type="file" id="fup" accept="application/*" style="display: none;">
-       <input type="text" placeholder="目标版本" id="targetVersion"><br><br>
-       <a href="../mdviewer.html#/doc/questions.md">如何使用Mod汉化包</a><br>
-       <button id="submit">转换并下载</button>
+</head>
+<body>
+<!-- 顶部应用栏 -->
+<header class="top-app-bar">
+    <button id="menu-button" class="material-icons" onclick="history.back()">arrow_back</button>
+    <div class="top-app-bar__title">
+        <img src="../imgs/logo.png" class="top-app-bar__logo" alt="TLMobile Logo">
+        <span>LocPack 工具</span>
     </div>
-  </body>
+</header>
+
+<!-- 主内容区 -->
+<main class="tool-container">
+    <div class="hero">
+        <h1 class="tool-title">LocPack 版本修改工具</h1>
+        <p class="tool-description">
+            通过修改汉化包的mod适配版本，使旧版可以使用新版汉化包。<br>
+            由于locpack与材质包加载方式相似，且格式一直以来并没有太大的变动，因此大部分情况下修改后可用。
+        </p>
+
+        <!-- 文件上传区域 -->
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="fup" accept=".locpack" class="hidden">
+            <label for="fup" class="upload-button">
+                <span class="material-icons">cloud_upload</span>
+                <span>上传 .locpack 文件</span>
+            </label>
+            <div id="fileName" class="file-name">未选择文件</div>
+        </div>
+
+        <!-- 目标版本输入 -->
+        <div class="input-field">
+            <label for="targetVersion">目标版本</label>
+            <input type="text" id="targetVersion" placeholder="例如: 1.4.3.6">
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="action-buttons">
+            <button id="submit" class="button primary">
+                <span class="material-icons">transform</span>
+                <span>转换并下载</span>
+            </button>
+            <a href="../doc/questions.html" class="button secondary">
+                <span class="material-icons">help_outline</span>
+                <span>如何使用Mod汉化包</span>
+            </a>
+        </div>
+
+        <!-- 信息提示 -->
+        <div id="infoPanel" class="info-panel hidden">
+            <h3 class="info-title">转换信息</h3>
+            <div class="info-content">
+                <div id="modVersionInfo" class="info-item">
+                    <span class="material-icons">info</span>
+                    <span>目标版本: <span id="targetVersionDisplay"></span></span>
+                </div>
+                <div id="nameInfo" class="info-item">
+                    <span class="material-icons">info</span>
+                    <span>汉化包名称: <span id="nameDisplay"></span></span>
+                </div>
+                <div id="authorInfo" class="info-item">
+                    <span class="material-icons">info</span>
+                    <span>汉化包作者: <span id="authorDisplay"></span></span>
+                </div>
+                <div id="modNameInfo" class="info-item">
+                    <span class="material-icons">info</span>
+                    <span>对应的Mod: <span id="modNameDisplay"></span></span>
+                </div>
+                <div class="info-item">
+                    <span class="material-icons">info</span>
+                    <span>汉化包介绍信息见控制台</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fup = document.getElementById('fup');
+        const targetVersion = document.getElementById('targetVersion');
+        const submit = document.getElementById('submit');
+        const fileName = document.getElementById('fileName');
+        const uploadArea = document.getElementById('uploadArea');
+        const infoPanel = document.getElementById('infoPanel');
+
+        // 文件上传处理
+        fup.addEventListener('change', function() {
+            if (fup.files[0]) {
+                fileName.textContent = fup.files[0].name;
+                uploadArea.classList.add('has-file');
+                Qmsg.success("文件 " + fup.files[0].name + " 加载成功！");
+            }
+        });
+
+        // 提交处理
+        submit.addEventListener('click', async function() {
+            if (!fup.files[0]) {
+                Qmsg.error("请先上传文件");
+                return;
+            }
+
+            if (!targetVersion.value) {
+                Qmsg.error("请输入目标版本");
+                return;
+            }
+
+            if (!fup.files[0].name.includes(".locpack")) {
+                Qmsg.error("文件格式错误，请上传 .locpack 文件");
+                return;
+            }
+
+            const loadingMessage = Qmsg.loading("转换中...");
+
+            try {
+                const reader = new FileReader();
+
+                reader.onload = async function(e) {
+                    try {
+                        const downloader = document.createElement("a");
+                        downloader.download = fup.files[0].name;
+
+                        downloader.href = await readPackageFromLocpack(e.target.result, (package) => {
+                            // 更新信息面板
+                            document.getElementById('targetVersionDisplay').textContent = targetVersion.value;
+                            document.getElementById('nameDisplay').textContent = package.Name || "未知";
+                            document.getElementById('authorDisplay').textContent = package.Author || "未知";
+                            document.getElementById('modNameDisplay').textContent = package.LocalizedModName || "未知";
+
+                            package.ModVersion = targetVersion.value;
+                            package.Description = "本汉化包版本使用 https://tlm.lapis-net.top/tools/locrv.html 修改，可能存在一定问题\n" +
+                                (package.Description || "");
+
+                            console.log("汉化包描述:", package.Description);
+
+                            // 显示信息面板
+                            infoPanel.classList.remove('hidden');
+                        });
+
+                        downloader.click();
+                        loadingMessage.close();
+                        Qmsg.success("修改成功！文件已开始下载");
+                    } catch (err) {
+                        loadingMessage.close();
+                        Qmsg.error("转换失败: " + err.message);
+                        console.error(err);
+                    }
+                };
+
+                reader.readAsArrayBuffer(fup.files[0]);
+            } catch (err) {
+                loadingMessage.close();
+                Qmsg.error("处理文件时出错: " + err.message);
+                console.error(err);
+            }
+        });
+    });
+</script>
+</body>
 </html>

@@ -1,0 +1,73 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-medium);
+    overflow: hidden;
+    box-shadow: var(--md-sys-elevation-1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+.card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card__header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+}
+
+.card__icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+    border-radius: var(--md-sys-shape-corner-medium);
+    object-fit: cover;
+}
+
+.card__title {
+    flex: 1;
+    min-width: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card__subtitle {
+    font-size: 0.875rem;
+    opacity: 0.7;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card__icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+    border-radius: var(--md-sys-shape-corner-medium);
+    object-fit: cover;
+    background-color: var(--md-sys-color-surface-variant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-sys-color-primary);
+    font-size: 24px;
+}
+
+.card__icon:empty::before {
+    content: "extension";
+    font-family: 'Material Icons', serif;
+}

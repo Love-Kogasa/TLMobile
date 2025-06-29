@@ -137,10 +137,64 @@
   {
     "name": "遗忘の物(Forgotten Item)",
     "description": "基于 https://github.com/2099123771/ForgottenItem 的改进版本，添加了已移除物品的获取方式以及某些武器的攻击方式",
-    "link": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/ForgottenItem.efmod",
+    "link": "https://gitlab.com/2079541547/terraria-efmod/-/tree/main/efmod/ForgottenItem?ref_type=heads",
     "writer": "EternalFuture゙",
     "file": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/ForgottenItem.efmod",
-    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAABACAYAAABLAmSPAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADy0lEQVRoge2abWhNYRzAf3ebl9gMuzFEFLZpX2hI8hpNWYtJeRvaJx9Q5n1t+TApK5RFkkTNfFCTTShikVa2Qhg3Yi1maTN3Mxp78eE5/13nnHt3x+4b5/y+3Huf85znns7v/p//8/zPdfCfkpIW0/P756hwXUiocYT7AgLNEM1kWfk4APZkfgQsZDQm3BcQKMTkhIIVAKS9f6w7bhv9VzCaFEYM36W9OwDYRiMfXyaF6KRMAGLd+wHbaOQiJuOW5QLQWqU/PmJerdfzbKORhtGkkaPDzgKQvfIRAPNTUgCoft3lANto5CAmh04+qLV06I6LSaHLVe51HNtouIlJm6aZXAfAoKkdffbfsCYfgIWrVN6U2BRso+FCTI5cthqAn2/QXocAUHryAgCN59p057W2n+hzXNtoqBGTnTsfqIba47rjYlIqBh3aGrdqnNp3ZmxsBMyxKdhGg/7FmkFBTDo1k8aYFJNC8eynAGQs6tukYBmjIa8CmmLRQHz5KcBs8mVNpwPM9Vpp94dljIYsRo0mnYZZVWLSH/01aMQ2GrAv8GHyy52rXvsP19a2gcY2OuCB/ZjsrHnt8Na/beKUoFyPbfSvB/xLk5MKkgCoqwz0FSksY7TfOWlTUpJuRVLicnk149lHqrz49fktALpeVfsxmQVAxd5DgHlFNFAsY9RvjIrJ41cyAMhde113PDp5tmZyCRB5JgXbqJh0Njfr2uWzmIxNVTt9qe1EmknBNipsuxAHwJGlFwEodqqVi5gU/tTk5MVlAGRJDShIJgXbqJGuqFQAYlMX6Nr9mZS8WleZDHhMfihU5wXbpGAZo713c8eYxbqVT3T3cwDSZzgBeDKrCYCGUmX29Oh2wGxSZuNRq/R5NSFb1V/rC12Aec0bbKxjVPLlxrHqBk/Zp55aHd49GG/tZ7a2mQYB37OxPAXztXsJFZYxGjOqRf0L8kaL1pKjXko+VWp3XjNepGIt726WbgDJr5FqUrCO0eJec9751qiebVwiEYC4290ATF+uv0eb76uKwuWcOYDH5PY69VNp8rOfDTbWMdrfjnOjvgPQdu0mABUvxgOetfDVOyrvrj+v+kd3K5N5d7foxjHuZ0OFZYz6jJOs+PgegPz0mQA8fPYWgHsNbgCGJaqYlTwrSL4VJO82JSQAoY9NwXpGjVU+iUlBTJa53TojxkqEmDMSLpOCZYyaZl2p9n2uV/tGWfOWueu9msw/9gOAUzlqV1Pi6jsvhwvrGhWT74rkCXSPsYsOT7/IxjJGfc66gq/Z0liR8LdmDjeWMfoLYTiSYnSp0JcAAAAASUVORK5CYII=",
+    "icon": "https://gitlab.com/2079541547/terraria-efmod/-/raw/main/efmod/ForgottenItem/mod/efmod.icon?ref_type=heads",
+    "engine": "tefmodloader"
+  },
+  {
+    "name": "超频(Overclock)",
+    "description": "你的物品被超频了，它比以前更快！",
+    "link": "https://gitlab.com/2079541547/terraria-efmod/-/tree/main/efmod/Overclock?ref_type=heads",
+    "writer": "EternalFuture゙",
+    "file": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/Overclock.efmod",
+    "icon": "https://gitlab.com/2079541547/terraria-efmod/-/raw/main/efmod/Overclock/mod/efmod.icon?ref_type=heads",
+    "engine": "tefmodloader"
+  },
+  {
+    "name": "饰品化(Accessorize)",
+    "description": "装备允许被佩戴为饰品",
+    "link": "https://gitlab.com/2079541547/terraria-efmod/-/tree/main/efmod/Accessorize?ref_type=heads",
+    "writer": "EternalFuture゙",
+    "file": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/Accessorize.efmod",
+    "icon": "https://gitlab.com/2079541547/terraria-efmod/-/raw/main/efmod/Accessorize/mod/efmod.icon?ref_type=heads",
+    "engine": "tefmodloader"
+  },
+  {
+    "name": "InfiniteLegion",
+    "description": "「InfiniteLegion」是专为召唤师设计的Terraria模组，解除游戏默认的召唤数量限制。\n\n核心功能：\n- 完全移除召唤物数量上限\n- 不修改其他游戏机制\n\n注意：\n- 需手动搭配召唤师装备使用\n- 召唤过多可能影响性能",
+    "link": "https://gitlab.com/2079541547/terraria-efmod/-/tree/main/efmod/InfiniteLegion?ref_type=heads",
+    "writer": "EternalFuture゙",
+    "file": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/InfiniteLegion.efmod",
+    "icon": "https://gitlab.com/2079541547/terraria-efmod/-/raw/main/efmod/InfiniteLegion/mod/efmod.icon?ref_type=heads&inline=false",
+    "engine": "tefmodloader"
+  },
+  {
+    "name": "InstantRespawn",
+    "description": "「InstantRespawn」是一款实用的Terraria模组，主要功能是让玩家在死亡后能够立即复活，无需等待倒计时结束。\n\n主要特点：\n- 死亡后瞬间复活，节省等待时间\n- 保持游戏原有平衡性，不修改其他游戏机制\n- 特别适合特别菜的玩家和测试场景使用\n\n注意：在PvP模式中使用可能会影响游戏公平性。",
+    "link": "https://gitlab.com/2079541547/terraria-efmod/-/tree/main/efmod/InstantRespawn?ref_type=heads",
+    "writer": "EternalFuture゙",
+    "file": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/InstantRespawn.efmod",
+    "icon": "https://gitlab.com/2079541547/terraria-efmod/-/raw/main/efmod/InstantRespawn/mod/efmod.icon?ref_type=heads",
+    "engine": "tefmodloader"
+  },
+  {
+    "name": "追踪者(Seeker)",
+    "description": "已为你的弹幕安装北斗卫星导航",
+    "link": "https://gitlab.com/2079541547/terraria-efmod/-/tree/main/efmod/Seeker?ref_type=heads",
+    "writer": "EternalFuture゙",
+    "file": "https://gitee.com/eternalfuture/terraria-efmod-releases/releases/download/Laseter/Seeker.efmod",
+    "icon": "https://gitlab.com/2079541547/terraria-efmod/-/raw/main/efmod/Seeker/mod/efmod.icon?ref_type=heads",
+    "engine": "tefmodloader"
+  },
+  {
+    "name": "口袋装备",
+    "description": "让背包里的装备也能生效，翅膀除外",
+    "link": "https://github.com/2099123771/PocketGear",
+    "writer": "雨鹜",
+    "file": "https://github.com/2099123771/PocketGear/releases/download/Laster/PocketGear.efmod",
+    "icon": "https://github.com/2099123771/PocketGear/raw/refs/heads/main/%E5%8F%A3%E8%A2%8B%E8%A3%85%E5%A4%87/efmod.icon",
     "engine": "tefmodloader"
   },
   {

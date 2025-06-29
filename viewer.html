@@ -1,54 +1,102 @@
-<!doctype>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="css/picnic.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>TLMobile - 一切为了Terraria手机MOD玩家</title>
-    <script src="js/moddata.js"></script>
-    <script>
-      window.onload = async () => {
-        var mdd = await loadMod()
-        var url = new URL( window.location.href ).searchParams
-        if( url.has( "id" )){
-          var mod = mdd.json[url.get("id")]
-          n.textContent = mod.name
-          description.innerHTML = mod.description
-          info.innerHTML = `适用于 ${mod.engine}<br>相关链接: <a href="${mod.link}">点我访问</a><br>Mod作者: ${mod.writer}`
-          download.href = mod.file || "javascript:alert('暂无')"
-        } else {
-          window.location.href = "./index.html"
-        }
-        modsearch.oninput = () => {
-          mods.innerHTML = ""
-          for( let mod of mdd.search( modsearch.value )){
-            mods.innerHTML += mod.html()
-          }
-        }
-        modsearch.oninput()
-      }
-    </script>
-  </head>
-  <body>
-    <nav class="demo imponent">
-      <a href="./index.html" class="brand">
-         <img src="imgs/logo.png" class="logo">
-        <span>TLMobile</span>
-      </a>
-      <input id="bmenug" type="checkbox" class="show">
-      <label for="bmenug" class="burger pseudo button">&#8801;</label>
-      <div class="menu" style="padding: 5px;">
-        <input placeholder="搜索模组" id="modsearch"/>
-        <div id="mods">
-        </div>
-      </div>
-    </nav><br>
-    <div class="container">
-      <h2 id="n">MOD NAME</h2>
-      <p id="info">适用于: tmodloader<br>相关链接: <a>Link</a></br>Mod作者: xxx</p>
-      <pre id="description">Mod description</pre>
-      <a class="button" id="download">下载Mod</a>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOD详情 - TLMobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/utilities.css" rel="stylesheet">
+  <link href="css/components/animations.css" rel="stylesheet">
+  <link href="css/components/buttons.css" rel="stylesheet">
+  <link href="css/components/cards.css" rel="stylesheet">
+  <link href="css/components/icons.css" rel="stylesheet">
+  <link href="css/components/nav-drawer.css" rel="stylesheet">
+  <link href="css/components/top-app-bar.css" rel="stylesheet">
+  <link href="css/components/hero.css" rel="stylesheet">
+  <link href="css/pages/mod-viewer.css" rel="stylesheet">
+  <script src="js/moddata.js"></script>
+</head>
+<body>
+<!-- 顶部应用栏 -->
+<header class="top-app-bar">
+  <div class="top-app-bar__container">
+    <button id="menu-button" class="material-icons" onclick="history.back()">arrow_back</button>
+    <h1 class="top-app-bar__title">MOD详情</h1>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="mod-detail-container">
+  <div class="mod-header">
+    <img id="mod-icon" src="imgs/icon-tmodloader.png" class="mod-icon" alt="MOD图标">
+    <h2 id="mod-name" class="mod-name">MOD名称</h2>
+  </div>
+
+  <div class="mod-meta">
+    <div class="mod-meta-item">
+      <span class="material-icons">person</span>
+      <span id="mod-author">未知作者</span>
     </div>
-  </body>
+    <div class="mod-meta-item">
+      <span class="material-icons">extension</span>
+      <span id="mod-engine">tmodloader</span>
+    </div>
+  </div>
+
+  <div class="mod-content">
+    <div class="mod-section">
+      <h3 class="section-title">MOD描述</h3>
+      <div id="mod-description" class="mod-description">加载中...</div>
+    </div>
+
+    <div class="mod-actions">
+      <a id="mod-download" class="button">
+        <span class="material-icons">file_download</span>
+        <span>下载MOD</span>
+      </a>
+      <a id="mod-link" class="button" target="_blank">
+        <span class="material-icons">open_in_new</span>
+        <span>官方页面</span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const url = new URL(window.location.href);
+    const mdd = await loadMod();
+
+    if(url.searchParams.has("id")) {
+      const mod = mdd.json[url.searchParams.get("id")];
+
+      // 更新页面内容
+      document.getElementById('mod-name').textContent = mod.name;
+      document.getElementById('mod-author').textContent = mod.writer || '未知作者';
+      document.getElementById('mod-engine').textContent = mod.engine;
+      document.getElementById('mod-description').innerHTML = mod.description.replace(/\n/g, '<br>');
+
+      const icon = document.getElementById('mod-icon');
+      if(mod.icon) {
+        icon.src = mod.icon;
+        icon.onerror = () => { icon.src = 'imgs/default-mod.png'; };
+      }
+
+      const downloadBtn = document.getElementById('mod-download');
+      downloadBtn.href = mod.file || '#';
+      if(!mod.file) {
+        downloadBtn.onclick = () => alert('暂无下载链接');
+        downloadBtn.style.opacity = '0.7';
+      }
+
+      const linkBtn = document.getElementById('mod-link');
+      linkBtn.href = mod.link || '#';
+    } else {
+      window.location.href = "index.html";
+    }
+  });
+</script>
+</body>
 </html>

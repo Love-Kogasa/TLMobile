@@ -1,0 +1,112 @@
+.top-app-bar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); /* 使用基础阴影替代变量 */
+    height: 64px;
+}
+
+.top-app-bar__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    color: var(--md-sys-color-on-surface);
+}
+
+.top-app-bar__logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    border-radius: 50%; /* 使用基础圆角替代变量 */
+    background-color: var(--md-sys-color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-sys-color-on-primary);
+}
+
+.top-app-bar__search {
+    flex-grow: 1;
+    margin: 0 16px;
+    position: relative;
+    max-width: 720px;
+}
+
+.search-field {
+    width: 100%;
+    padding: 10px 16px 10px 48px;
+    border-radius: 999px; /* 使用基础圆角替代变量 */
+    border: none;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface);
+    font-size: 0.875rem;
+    height: 40px;
+    transition: background-color 0.2s ease;
+}
+
+.search-field:hover {
+    background-color: var(--md-sys-color-primary-container);
+}
+
+.search-field:focus {
+    background-color: var(--md-sys-color-surface);
+    border-color: var(--md-sys-color-primary);
+    outline: none;
+}
+
+.search-field::placeholder {
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 20px;
+}
+
+#menu-button {
+    background: none;
+    border: none;
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* 使用基础圆角替代变量 */
+    transition: background-color 0.2s ease;
+    margin-right: 8px;
+}
+
+#menu-button:hover {
+    background-color: var(--md-sys-color-surface-variant);
+}
+
+#menu-button:active {
+    background-color: var(--md-sys-color-secondary-container);
+}
+
+#menu-button:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+}
+
+/* 深色主题适配 */
+.dark-theme .search-field {
+    background-color: var(--md-sys-color-surface-variant);
+}
+
+.dark-theme .search-field:hover {
+    background-color: var(--md-sys-color-primary-container);
+}
