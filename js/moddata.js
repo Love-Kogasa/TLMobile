@@ -5,7 +5,7 @@ async function loadMod( json = "./data/mods.json" ){
     return ` <div class="mod-card" onclick="window.location.href='viewer.html?id=${index}'">
         <img src="${addon.icon || 'imgs/default-mod.png'}"
              class="mod-card__image"
-             onerror="this.src='imgs/default-mod.png'"
+             onerror="this.src='imgs/icon-terraria.png'"
              alt="${addon.name}">
         <div class="mod-card__content">
           <h3 class="mod-card__title">${addon.name}</h3>
