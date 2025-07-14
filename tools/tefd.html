@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEFModloader 下载</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../css/utilities.css" rel="stylesheet">
+  <link href="../css/components/animations.css" rel="stylesheet">
+  <link href="../css/components/buttons.css" rel="stylesheet">
+  <link href="../css/components/cards.css" rel="stylesheet">
+  <link href="../css/components/icons.css" rel="stylesheet">
+  <link href="../css/components/nav-drawer.css" rel="stylesheet">
+  <link href="../css/components/top-app-bar.css" rel="stylesheet">
+  <link href="../css/components/hero.css" rel="stylesheet">
+  <link href="../css/pages/generator.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://gskmail.thmobile.xyz/libs/message.min.css">
+  <script src="https://gskmail.thmobile.xyz/libs/message.min.js"></script>
+</head>
+<body>
+<!-- 顶部应用栏 -->
+<header class="top-app-bar">
+  <button id="menu-button" class="material-icons" onclick="window.location.href = '../'">arrow_back</button>
+  <div class="top-app-bar__title">
+    <img src="../imgs/logo.png" class="top-app-bar__logo" alt="TLMobile Logo">
+    <span>JSON 生成器</span>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="generator-container">
+  <section class="hero">
+    <h1 class="hero__title" id="title">TEFModLoader</h1>
+    <p class="hero__subtitle">
+      TEFModloader 安装包下载页<br>
+      从官方<a href="https://api.github.com/repos/eternalfuture-e38299/TEFModLoader">Github</a>获取资源，更安全，更放心(<br>本页仅提供tEFModLoader最新LTS版本的下载链接，旧版以及Beta，开发版请到Github进行下载<br><br>温馨提示: <i>TEFModloader</i> 为 <b>开源 免费</b> 项目<br>一切付费/需实名认证的版本皆为盗版<br><br>你知道吗: TLM现役样式表是EternalFuture大佬提供的哦，感谢</p>
+    <a class="button" id="downloadmirror">
+      下载APK(bgithub镜像源，更快但不安全)
+    </a>
+    <a class="button" id="download">
+      下载APK(官方源)
+    </a>
+  </section>
+  <script>
+    (async function(){
+      try {
+        var msg = Qmsg.loading( "获取Release中" )
+        var releases = (await (await fetch( "https://api.github.com/repos/eternalfuture-e38299/TEFModLoader/releases" )).json())
+        var res
+        for( let release of releases ){
+          if(!release.name.toLowerCase().includes( "beta" )&& !release.name.toLowerCase().includes( "dev" )){
+            res = release
+          }
+        }
+        title.textContent = "TEFModloader: " + res.name
+        download.onclick = function(){
+          for( let asset of res.assets ){
+            window.open(asset.browser_download_url)
+          }
+        }
+        downloadmirror.onclick = function(){
+          for( let asset of res.assets ){
+            window.open(asset.browser_download_url.replace( "github.com", "bgithub.xyz" ))
+          }
+        }
+        msg.close()
+      } catch( err ){
+        Qmsg.error( err.toString() )
+      }
+    }).call(this)
+  </script>
+</main>
+</body>
+</html>
